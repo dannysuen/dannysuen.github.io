@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://dannysuen.github.io/blog/2018/06/06/java-stream-api/</loc>
+<lastmod>2018-06-06T18:02:25+07:00</lastmod>
+</url>
+<url>
+<loc>http://dannysuen.github.io/blog/2018/06/06/lambda-expressions/</loc>
+<lastmod>2018-06-06T18:01:55+07:00</lastmod>
+</url>
+<url>
 <loc>http://dannysuen.github.io/blog/2018/06/06/java-8-functional-interfaces-notes/</loc>
 <lastmod>2018-06-06T17:15:33+07:00</lastmod>
 </url>

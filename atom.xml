@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Yu Sun's Blog]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-06T18:00:25+07:00</updated>
+  <updated>2018-06-06T18:02:33+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Java Stream API]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/06/java-stream-api/"/>
+    <updated>2018-06-06T18:02:25+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/06/java-stream-api</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lambda Expressions]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/06/lambda-expressions/"/>
+    <updated>2018-06-06T18:01:55+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/06/lambda-expressions</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Java 8 Functional Interfaces笔记]]></title>
