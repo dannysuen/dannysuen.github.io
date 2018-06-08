@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Yu Sun's Blog]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-06T18:25:21+07:00</updated>
+  <updated>2018-06-08T23:00:59+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -14,11 +14,62 @@
 
   
   <entry>
+    <title type="html"><![CDATA[在境外申请新加坡旅游签证]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/07/applying-for-a-singapore-tourist-visa/"/>
+    <updated>2018-06-07T18:33:21+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/07/applying-for-a-singapore-tourist-visa</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Java Stream API]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/06/java-stream-api/"/>
     <updated>2018-06-06T18:02:25+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/06/java-stream-api</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>Java 8引入了Stream的概念，掌握这个概念的最佳方式是阅读Java官方文档。
+可以浏览一下Oracle Java文档或是<a href="https://developer.android.com/reference/java/util/stream/package-summary">Android官方文档</a>。</p>
+
+<p>有些关键的概念需要掌握：stream、source、stream pipeline、stream operations、intermediate operations、terminal operation。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Returns a sequential {@code Stream} with this collection as its source.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * &lt;p&gt;This method should be overridden when the {@link #spliterator()}</span>
+</span><span class='line'><span class="cm"> * method cannot return a spliterator that is {@code IMMUTABLE},</span>
+</span><span class='line'><span class="cm"> * {@code CONCURRENT}, or &lt;em&gt;late-binding&lt;/em&gt;. (See {@link #spliterator()}</span>
+</span><span class='line'><span class="cm"> * for details.)</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * @implSpec</span>
+</span><span class='line'><span class="cm"> * The default implementation creates a sequential {@code Stream} from the</span>
+</span><span class='line'><span class="cm"> * collection&#39;s {@code Spliterator}.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * @return a sequential {@code Stream} over the elements in this collection</span>
+</span><span class='line'><span class="cm"> * @since 1.8</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="k">default</span> <span class="n">Stream</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">stream</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">StreamSupport</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">spliterator</span><span class="o">(),</span> <span class="kc">false</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
@@ -40,7 +91,7 @@
 
 <p>最值得阅读的文档一般都是官方文档。<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/function/package-summary">Android</a>都有文档的链接。</p>
 
-<h2>4个典型的Functional interfaces</h2>
+<h2>4个内建的Functional interfaces</h2>
 
 <p>Functional Interfaces，或称为函数式接口，主要是指列于<code>java.util.function</code>包下的所有新的接口。它们被设计出来以满足通用的需求。乍看下共有43个接口，会觉得很吓人。其实它们都是从4个最典型的接口派生而来，为了某个specialization的、更具体化的场景而设计的，说白了就是为了让程序员能够根据需求选择出最具体化的接口。</p>
 
@@ -133,6 +184,12 @@
 </span><span class='line'>    <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>一个Lambda表达式可以与多个Functional Interfaces兼容（compatible）。</p>
+
+<h2>Primitive Functional Interfaces</h2>
+
+<p>Primitive Functional Interfaces只包含<code>double</code>、<code>int</code>和<code>long</code>类型，所以<code>java.util.function</code>包下就不存在类似<code>CharSupplier</code>的接口。</p>
 
 <h2>补充</h2>
 
