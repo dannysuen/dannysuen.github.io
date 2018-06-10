@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Yu Sun's Blog]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-08T23:00:59+07:00</updated>
+  <updated>2018-06-10T22:40:18+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -91,7 +91,7 @@
 
 <p>最值得阅读的文档一般都是官方文档。<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/function/package-summary">Android</a>都有文档的链接。</p>
 
-<h2>4个内建的Functional interfaces</h2>
+<h2>4个内建(Built-in)的Functional interfaces</h2>
 
 <p>Functional Interfaces，或称为函数式接口，主要是指列于<code>java.util.function</code>包下的所有新的接口。它们被设计出来以满足通用的需求。乍看下共有43个接口，会觉得很吓人。其实它们都是从4个最典型的接口派生而来，为了某个specialization的、更具体化的场景而设计的，说白了就是为了让程序员能够根据需求选择出最具体化的接口。</p>
 
@@ -185,11 +185,11 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>一个Lambda表达式可以与多个Functional Interfaces兼容（compatible）。</p>
+<p>Lambda表达式和函数式接口并不是一一对应的关系，一个Lambda表达式可以与多个Functional Interfaces兼容（compatible）。</p>
 
 <h2>Primitive Functional Interfaces</h2>
 
-<p>Primitive Functional Interfaces只包含<code>double</code>、<code>int</code>和<code>long</code>类型，所以<code>java.util.function</code>包下就不存在类似<code>CharSupplier</code>的接口。</p>
+<p>Primitive Functional Interfaces只包含<code>double</code>、<code>int</code>和<code>long</code>类型，而不包含<code>char</code>、<code>float</code>和<code>short</code>类型，所以<code>java.util.function</code>包下就不存在类似<code>CharSupplier</code>的接口。</p>
 
 <h2>补充</h2>
 
