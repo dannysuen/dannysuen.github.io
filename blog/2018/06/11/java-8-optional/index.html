@@ -5,15 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Danny Yu Sun's Blog</title>
+  <title>Java 8 Optional - Danny Yu Sun's Blog</title>
   <meta name="author" content="Danny Yu Sun">
 
   
-  <meta name="description" content="Blog Archive 2018 Java 8 Optional
-Jun 11 2018 Introduction to Java 8
-Jun 11 2018 在境外申请新加坡旅游签证
-Jun 07 2018 Java Stream API
-Jun 06 2018 Lambda &hellip;">
+  <meta name="description" content="Urma关于空指针的一段话： I will argue in this article that using null to represent the absence of a value is a wrong approach. What we need is a better way to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +18,7 @@ Jun 06 2018 Lambda &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dannysuen.github.io/blog/archives/">
+  <link rel="canonical" href="http://dannysuen.github.io/blog/2018/06/11/java-8-optional/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Danny Yu Sun's Blog" type="application/atom+xml">
@@ -69,81 +65,70 @@ Jun 06 2018 Lambda &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Java 8 Optional</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-06-11T21:15:02+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>9:15 pm</span></time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>Urma关于空指针的一段话：</p>
 
-  
-  <h2>2018</h2>
+<blockquote><p>I will argue in this article that using null to represent the absence of a value is a wrong approach. What we need is a better way to model the absence and presence of a value.</p></blockquote>
 
-<article>
-  
-<h1><a href="/blog/2018/06/11/java-8-optional/">Java 8 Optional</a></h1>
-<time datetime="2018-06-11T21:15:02+07:00" pubdate><span class='month'>Jun</span> <span class='day'>11</span> <span class='year'>2018</span></time>
+<p>关于引入<code>java.util.Optional</code>类的初衷：</p>
 
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2018/06/11/introduction-to-java-8/">Introduction to Java 8</a></h1>
-<time datetime="2018-06-11T11:59:30+07:00" pubdate><span class='month'>Jun</span> <span class='day'>11</span> <span class='year'>2018</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2018/06/07/applying-for-a-singapore-tourist-visa/">在境外申请新加坡旅游签证</a></h1>
-<time datetime="2018-06-07T18:33:21+07:00" pubdate><span class='month'>Jun</span> <span class='day'>07</span> <span class='year'>2018</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2018/06/06/java-stream-api/">Java Stream API</a></h1>
-<time datetime="2018-06-06T18:02:25+07:00" pubdate><span class='month'>Jun</span> <span class='day'>06</span> <span class='year'>2018</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2018/06/06/lambda-expressions/">Lambda Expressions</a></h1>
-<time datetime="2018-06-06T18:01:55+07:00" pubdate><span class='month'>Jun</span> <span class='day'>06</span> <span class='year'>2018</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2018/06/06/java-8-functional-interfaces-notes/">Java 8 Functional Interfaces笔记</a></h1>
-<time datetime="2018-06-06T17:15:33+07:00" pubdate><span class='month'>Jun</span> <span class='day'>06</span> <span class='year'>2018</span></time>
-
-
-</article>
-
+<blockquote><p>It is important to note that the intention of the Optional class is not to replace every single null reference. Instead, its purpose is to help design more-comprehensible APIs so that by just reading the signature of a method, you can tell whether you can expect an optional value. This forces you to actively unwrap an Optional to deal with the absence of a value.</p></blockquote>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Danny Yu Sun</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2018-06-11T21:15:02+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>9:15 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dannysuen.github.io/blog/2018/06/11/java-8-optional/" data-via="" data-counturl="http://dannysuen.github.io/blog/2018/06/11/java-8-optional/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2018/06/11/introduction-to-java-8/" title="Previous Post: Introduction to Java 8">&laquo; Introduction to Java 8</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
