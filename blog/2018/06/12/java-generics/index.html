@@ -90,6 +90,37 @@
 <blockquote><p>For maximum flexibility, use wildcard types on input parameters that represent producers or consumers. If an input parameter is both a producer and a consumer, then wildcard types will do you no good: you
 need an exact type match, which is what you get without any wildcards. Here is a mnemonic to help you remember which wildcard type to use:
 PECS stands for producer-extends, consumer-super.</p></blockquote>
+
+<p>参考这个<a href="http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeArguments.html#FAQ103">Java Generics FAQs</a></p>
+
+<h3>What is a bounded wildcard?</h3>
+
+<p>A wildcard with either an upper or a lower bound.
+A wildcard with an upper bound looks like &ldquo; ? extends Type &rdquo; and stands for the family of all types that are subtypes of Type , type Type being included.  Type is called the upper bound .
+A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands for the family of all types that are supertypes of Type , type Type being included. Type is called the lower bound .</p>
+
+<p>Bounded wildcards are used as arguments for instantiation of generic types.  Bounded wildcards are useful in situations where only partial knowledge about the type argument of a parameterized type is needed, but where unbounded wildcards carry too little type information.</p>
+
+<p>Example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Collections</span> <span class="o">{</span>
+</span><span class='line'>  <span class="c1">// bounded wildcard parameterized types</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">copy</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">dest</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">src</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">src</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span>
+</span><span class='line'>        <span class="n">dest</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">src</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The copy method copies elements from a source list into a destination list.  The destination list must be capable of holding the elements from the source list.  We express this by means of bounded wildcards: the output list is required to have an element type with a lower bound T and the input list must have an element type with an upper bound T .</p>
 </div>
 
 
