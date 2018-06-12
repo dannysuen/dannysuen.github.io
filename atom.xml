@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Yu Sun's Blog]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-12T10:24:01+07:00</updated>
+  <updated>2018-06-12T11:45:46+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Java泛型中一些难点解析]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/12/java-generics/"/>
+    <updated>2018-06-12T11:44:52+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/12/java-generics</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Java 8 Optional]]></title>
