@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Yu Sun's Blog]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-12T11:45:46+07:00</updated>
+  <updated>2018-06-12T12:40:13+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -18,7 +18,11 @@
     <link href="http://dannysuen.github.io/blog/2018/06/12/java-generics/"/>
     <updated>2018-06-12T11:44:52+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/12/java-generics</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>Joshua Bloch：</p>
+
+<blockquote><p>For maximum flexibility, use wildcard types on input parameters that represent producers or consumers. If an input parameter is both a producer and a consumer, then wildcard types will do you no good: you
+need an exact type match, which is what you get without any wildcards. Here is a mnemonic to help you remember which wildcard type to use:
+PECS stands for producer-extends, consumer-super.</p></blockquote>
 ]]></content>
   </entry>
   

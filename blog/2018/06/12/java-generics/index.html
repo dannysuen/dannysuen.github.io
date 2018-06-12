@@ -9,8 +9,7 @@
   <meta name="author" content="Danny Yu Sun">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="Joshua Bloch： For maximum flexibility, use wildcard types on input parameters that represent producers or consumers. If an input parameter is both a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,7 +85,11 @@
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><p>Joshua Bloch：</p>
+
+<blockquote><p>For maximum flexibility, use wildcard types on input parameters that represent producers or consumers. If an input parameter is both a producer and a consumer, then wildcard types will do you no good: you
+need an exact type match, which is what you get without any wildcards. Here is a mnemonic to help you remember which wildcard type to use:
+PECS stands for producer-extends, consumer-super.</p></blockquote>
 </div>
 
 
