@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Yu Sun's Blog]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-11T22:43:44+07:00</updated>
+  <updated>2018-06-12T10:24:01+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -18,7 +18,9 @@
     <link href="http://dannysuen.github.io/blog/2018/06/11/java-8-optional/"/>
     <updated>2018-06-11T21:15:02+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/11/java-8-optional</id>
-    <content type="html"><![CDATA[<p>Urma关于空指针的一段话：</p>
+    <content type="html"><![CDATA[<p>首先仔细浏览<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/Optional">Android</a>官方API文档。</p>
+
+<p>Urma关于空指针的一段话：</p>
 
 <blockquote><p>I will argue in this article that using null to represent the absence of a value is a wrong approach. What we need is a better way to model the absence and presence of a value.</p></blockquote>
 
@@ -38,7 +40,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[在境外申请新加坡旅游签证]]></title>
+    <title type="html"><![CDATA[在境外申请新加坡旅游签证攻略]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/07/applying-for-a-singapore-tourist-visa/"/>
     <updated>2018-06-07T18:33:21+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/07/applying-for-a-singapore-tourist-visa</id>
