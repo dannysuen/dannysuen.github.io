@@ -94,7 +94,7 @@
 need an exact type match, which is what you get without any wildcards. Here is a mnemonic to help you remember which wildcard type to use:
 PECS stands for producer-extends, consumer-super.</p></blockquote>
 
-<p>参考这个<a href="http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeArguments.html#FAQ103">Java Generics FAQs</a></p>
+<p>参考Stackoverflow上这个<a href="https://stackoverflow.com/questions/4343202/difference-between-super-t-and-extends-t-in-java">问答</a>或是参考这个<a href="http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeArguments.html#FAQ103">Java Generics FAQs</a></p>
 
 <h3>What is a bounded wildcard?</h3>
 
@@ -136,7 +136,7 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2018/06/11/java-8-optional/">Java 8 Optional</a></h1>
+      <h1 class="entry-title"><a href="/blog/2018/06/11/java-8-optional/">Java 8 Optional类的要点分析</a></h1>
     
     
       <p class="meta">
@@ -154,6 +154,8 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
 
   <div class="entry-content"><p>首先仔细浏览<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/Optional">Android</a>官方API文档。</p>
 
+<p>然后仔细浏览Urma所著的Oracle的Java官方<a href="http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html">Tutorial</a>。</p>
+
 <p>Urma关于空指针的一段话：</p>
 
 <blockquote><p>I will argue in this article that using null to represent the absence of a value is a wrong approach. What we need is a better way to model the absence and presence of a value.</p></blockquote>
@@ -161,6 +163,141 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
 <p>关于引入<code>java.util.Optional</code>类的初衷：</p>
 
 <blockquote><p>It is important to note that the intention of the Optional class is not to replace every single null reference. Instead, its purpose is to help design more-comprehensible APIs so that by just reading the signature of a method, you can tell whether you can expect an optional value. This forces you to actively unwrap an Optional to deal with the absence of a value.</p></blockquote>
+
+<h2>Optional.map和Optional.flatMap的区别</h2>
+
+<p>其实只要仔细读读Optional类的源码就明白两者的区别了：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * If a value is present, apply the provided mapping function to it,</span>
+</span><span class='line'><span class="cm"> * and if the result is non-null, return an {@code Optional} describing the</span>
+</span><span class='line'><span class="cm"> * result.  Otherwise return an empty {@code Optional}.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * @apiNote This method supports post-processing on optional values, without</span>
+</span><span class='line'><span class="cm"> * the need to explicitly check for a return status.  For example, the</span>
+</span><span class='line'><span class="cm"> * following code traverses a stream of file names, selects one that has</span>
+</span><span class='line'><span class="cm"> * not yet been processed, and then opens that file, returning an</span>
+</span><span class='line'><span class="cm"> * {@code Optional&lt;FileInputStream&gt;}:</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * &lt;pre&gt;{@code</span>
+</span><span class='line'><span class="cm"> *     Optional&lt;FileInputStream&gt; fis =</span>
+</span><span class='line'><span class="cm"> *         names.stream().filter(name -&gt; !isProcessedYet(name))</span>
+</span><span class='line'><span class="cm"> *                       .findFirst()</span>
+</span><span class='line'><span class="cm"> *                       .map(name -&gt; new FileInputStream(name));</span>
+</span><span class='line'><span class="cm"> * }&lt;/pre&gt;</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * Here, {@code findFirst} returns an {@code Optional&lt;String&gt;}, and then</span>
+</span><span class='line'><span class="cm"> * {@code map} returns an {@code Optional&lt;FileInputStream&gt;} for the desired</span>
+</span><span class='line'><span class="cm"> * file if one exists.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * @param &lt;U&gt; The type of the result of the mapping function</span>
+</span><span class='line'><span class="cm"> * @param mapper a mapping function to apply to the value, if present</span>
+</span><span class='line'><span class="cm"> * @return an {@code Optional} describing the result of applying a mapping</span>
+</span><span class='line'><span class="cm"> * function to the value of this {@code Optional}, if a value is present,</span>
+</span><span class='line'><span class="cm"> * otherwise an empty {@code Optional}</span>
+</span><span class='line'><span class="cm"> * @throws NullPointerException if the mapping function is null</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="nf">map</span><span class="o">(</span><span class="n">Function</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">,</span> <span class="o">?</span> <span class="kd">extends</span> <span class="n">U</span><span class="o">&gt;</span> <span class="n">mapper</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">mapper</span><span class="o">);</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">(!</span><span class="n">isPresent</span><span class="o">())</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nf">empty</span><span class="o">();</span>
+</span><span class='line'>    <span class="k">else</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">mapper</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">value</span><span class="o">));</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * If a value is present, apply the provided {@code Optional}-bearing</span>
+</span><span class='line'><span class="cm"> * mapping function to it, return that result, otherwise return an empty</span>
+</span><span class='line'><span class="cm"> * {@code Optional}.  This method is similar to {@link #map(Function)},</span>
+</span><span class='line'><span class="cm"> * but the provided mapper is one whose result is already an {@code Optional},</span>
+</span><span class='line'><span class="cm"> * and if invoked, {@code flatMap} does not wrap it with an additional</span>
+</span><span class='line'><span class="cm"> * {@code Optional}.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * @param &lt;U&gt; The type parameter to the {@code Optional} returned by</span>
+</span><span class='line'><span class="cm"> * @param mapper a mapping function to apply to the value, if present</span>
+</span><span class='line'><span class="cm"> *           the mapping function</span>
+</span><span class='line'><span class="cm"> * @return the result of applying an {@code Optional}-bearing mapping</span>
+</span><span class='line'><span class="cm"> * function to the value of this {@code Optional}, if a value is present,</span>
+</span><span class='line'><span class="cm"> * otherwise an empty {@code Optional}</span>
+</span><span class='line'><span class="cm"> * @throws NullPointerException if the mapping function is null or returns</span>
+</span><span class='line'><span class="cm"> * a null result</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="nf">flatMap</span><span class="o">(</span><span class="n">Function</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">,</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;</span> <span class="n">mapper</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">mapper</span><span class="o">);</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">(!</span><span class="n">isPresent</span><span class="o">())</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nf">empty</span><span class="o">();</span>
+</span><span class='line'>    <span class="k">else</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">mapper</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">value</span><span class="o">));</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可见两者唯一的区别就是map方法在最后用 <code>Optional.ofNullable</code> 包装了返回值，而flatMap没有。</p>
 </div>
   
   
@@ -485,7 +622,7 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
       </li>
     
       <li class="post">
-        <a href="/blog/2018/06/11/java-8-optional/">Java 8 Optional</a>
+        <a href="/blog/2018/06/11/java-8-optional/">Java 8 Optional类的要点分析</a>
       </li>
     
       <li class="post">
