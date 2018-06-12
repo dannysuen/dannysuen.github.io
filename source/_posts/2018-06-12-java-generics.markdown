@@ -11,7 +11,7 @@ Joshua Bloch：
 need an exact type match, which is what you get without any wildcards. Here is a mnemonic to help you remember which wildcard type to use:
 PECS stands for producer-extends, consumer-super.
 
-参考这个[Java Generics FAQs](http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeArguments.html#FAQ103)    
+参考Stackoverflow上这个[问答](https://stackoverflow.com/questions/4343202/difference-between-super-t-and-extends-t-in-java)或是参考这个[Java Generics FAQs](http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeArguments.html#FAQ103)    
 
 ### What is a bounded wildcard?
 A wildcard with either an upper or a lower bound.
