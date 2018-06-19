@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Yu Sun's Blog]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-12T18:07:49+07:00</updated>
+  <updated>2018-06-19T14:42:05+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Java 8 Date & Time API]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/16/java-8-date-and-time-api/"/>
+    <updated>2018-06-16T22:43:02+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/16/java-8-date-and-time-api</id>
+    <content type="html"><![CDATA[<p><a href="https://developer.android.com/reference/java/time/package-summary">Android官方文档里</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[谈谈赴泰工作的问题]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/14/applying-visa-to-work-in-thailand/"/>
+    <updated>2018-06-14T16:48:42+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/14/applying-visa-to-work-in-thailand</id>
+    <content type="html"><![CDATA[<p>自从16年10月到泰国工作，迄今已经超过一年半了。我也想分享一下如何去泰国工作，其中最重要的就是签证问题。</p>
+
+<p>根据来泰国的目的，需要申请对应的签证。对于大多数人来说旅游签的门槛很低，但是持有旅游签是不能直接来泰国申请Work Permit的。事实上这种做法是非法的。</p>
+
+<p>事实上有两个法律凭证需要搞清楚，第一个是工作签证；第二个是工作证。</p>
+
+<h2>需要解答的问题</h2>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Java泛型中一些难点解析]]></title>
@@ -208,6 +232,10 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
 
 
 <p>可见两者唯一的区别就是map方法在最后用 <code>Optional.ofNullable</code> 包装了返回值，而flatMap没有。</p>
+
+<h2>Optional类的primitive版本</h2>
+
+<p><code>OptionalInt</code>、<code>OptionalLong</code>、<code>OptionalDouble</code>，它们的对应<code>get</code>方法签名变成了<code>getAsInt</code>、<code>getAsLong</code>、<code>getAsDouble</code>。</p>
 ]]></content>
   </entry>
   
@@ -284,6 +312,8 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">stream</span> <span class="n">has</span> <span class="n">already</span> <span class="n">been</span> <span class="n">operated</span> <span class="n">upon</span> <span class="n">or</span> <span class="n">closed</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation.</p>
 ]]></content>
   </entry>
   

@@ -9,7 +9,8 @@
   <meta name="author" content="Danny Yu Sun">
 
   
-  <meta name="description" content="Joshua Bloch： For maximum flexibility, use wildcard types on input parameters that represent producers or consumers. If an input parameter is both a &hellip;">
+  <meta name="description" content="Android官方文档里
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +67,70 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/06/16/java-8-date-and-time-api/">Java 8 Date & Time API</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-06-16T22:43:02+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>10:43 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://developer.android.com/reference/java/time/package-summary">Android官方文档里</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/06/14/applying-visa-to-work-in-thailand/">谈谈赴泰工作的问题</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-06-14T16:48:42+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>4:48 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>自从16年10月到泰国工作，迄今已经超过一年半了。我也想分享一下如何去泰国工作，其中最重要的就是签证问题。</p>
+
+<p>根据来泰国的目的，需要申请对应的签证。对于大多数人来说旅游签的门槛很低，但是持有旅游签是不能直接来泰国申请Work Permit的。事实上这种做法是非法的。</p>
+
+<p>事实上有两个法律凭证需要搞清楚，第一个是工作签证；第二个是工作证。</p>
+
+<h2>需要解答的问题</h2>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -298,6 +363,10 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
 
 
 <p>可见两者唯一的区别就是map方法在最后用 <code>Optional.ofNullable</code> 包装了返回值，而flatMap没有。</p>
+
+<h2>Optional类的primitive版本</h2>
+
+<p><code>OptionalInt</code>、<code>OptionalLong</code>、<code>OptionalDouble</code>，它们的对应<code>get</code>方法签名变成了<code>getAsInt</code>、<code>getAsLong</code>、<code>getAsDouble</code>。</p>
 </div>
   
   
@@ -434,6 +503,8 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">stream</span> <span class="n">has</span> <span class="n">already</span> <span class="n">been</span> <span class="n">operated</span> <span class="n">upon</span> <span class="n">or</span> <span class="n">closed</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation.</p>
 </div>
   
   
@@ -618,6 +689,14 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2018/06/16/java-8-date-and-time-api/">Java 8 Date & Time API</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/06/14/applying-visa-to-work-in-thailand/">谈谈赴泰工作的问题</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/06/12/java-generics/">Java泛型中一些难点解析</a>
       </li>
     
@@ -627,14 +706,6 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
     
       <li class="post">
         <a href="/blog/2018/06/11/introduction-to-java-8/">Introduction to Java 8</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/06/07/applying-for-a-singapore-tourist-visa/">在境外申请新加坡旅游签证攻略</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/06/06/java-stream-api/">Java Stream API</a>
       </li>
     
   </ul>
