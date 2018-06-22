@@ -5,12 +5,27 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Java Stream API - Danny Yu Sun's Blog</title>
+  <title>Java Date and Time Problem - Danny Yu Sun's Blog</title>
   <meta name="author" content="Danny Yu Sun">
 
   
-  <meta name="description" content="Java 8引入了Stream的概念，掌握这个概念的最佳方式是阅读Java官方文档。
-可以浏览一下Oracle Java文档或是Android官方文档。 有些关键的概念需要掌握：stream、source、stream pipeline、stream operations、intermediate &hellip;">
+  <meta name="description" content="https://www.hackerrank.com/challenges/java-date-and-time/problem 这道算法题使用Java 8的Date &amp; Time API很容易解决了。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +34,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dannysuen.github.io/blog/2018/06/06/java-stream-api/">
+  <link rel="canonical" href="http://dannysuen.github.io/blog/2018/06/22/java-date-and-time-problem/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Danny Yu Sun's Blog" type="application/atom+xml">
@@ -70,7 +85,7 @@
   
   <header>
     
-      <h1 class="entry-title">Java Stream API</h1>
+      <h1 class="entry-title">Java Date and Time Problem</h1>
     
     
       <p class="meta">
@@ -79,17 +94,16 @@
 
 
 
-<time class='entry-date' datetime='2018-06-06T18:02:25+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>6:02 pm</span></time>
+<time class='entry-date' datetime='2018-06-22T22:08:32+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2018</span></span> <span class='time'>10:08 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Java 8引入了Stream的概念，掌握这个概念的最佳方式是阅读Java官方文档。
-可以浏览一下Oracle Java文档或是<a href="https://developer.android.com/reference/java/util/stream/package-summary">Android官方文档</a>。</p>
+<div class="entry-content"><p><a href="https://www.hackerrank.com/challenges/java-date-and-time/problem">https://www.hackerrank.com/challenges/java-date-and-time/problem</a></p>
 
-<p>有些关键的概念需要掌握：stream、source、stream pipeline、stream operations、intermediate operations、terminal operation。</p>
+<p>这道算法题使用Java 8的Date &amp; Time API很容易解决了。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -109,35 +123,28 @@
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * Returns a sequential {@code Stream} with this collection as its source.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * &lt;p&gt;This method should be overridden when the {@link #spliterator()}</span>
-</span><span class='line'><span class="cm"> * method cannot return a spliterator that is {@code IMMUTABLE},</span>
-</span><span class='line'><span class="cm"> * {@code CONCURRENT}, or &lt;em&gt;late-binding&lt;/em&gt;. (See {@link #spliterator()}</span>
-</span><span class='line'><span class="cm"> * for details.)</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * @implSpec</span>
-</span><span class='line'><span class="cm"> * The default implementation creates a sequential {@code Stream} from the</span>
-</span><span class='line'><span class="cm"> * collection&#39;s {@code Spliterator}.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * @return a sequential {@code Stream} over the elements in this collection</span>
-</span><span class='line'><span class="cm"> * @since 1.8</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="k">default</span> <span class="n">Stream</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">stream</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">StreamSupport</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">spliterator</span><span class="o">(),</span> <span class="kc">false</span><span class="o">);</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getDay</span><span class="o">(</span><span class="n">String</span> <span class="n">day</span><span class="o">,</span> <span class="n">String</span> <span class="n">month</span><span class="o">,</span> <span class="n">String</span> <span class="n">year</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">day</span><span class="o">);</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">month</span><span class="o">);</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">year</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">LocalDate</span> <span class="n">date</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">y</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">d</span><span class="o">);</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">date</span><span class="o">.</span><span class="na">getDayOfWeek</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">String</span> <span class="n">month</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">String</span> <span class="n">day</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">String</span> <span class="n">year</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getDay</span><span class="o">(</span><span class="n">day</span><span class="o">,</span> <span class="n">month</span><span class="o">,</span> <span class="n">year</span><span class="o">));</span>
+</span><span class='line'>    <span class="o">}</span>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>Stream实例只能被使用一次，否则会抛出Runtime Exception：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">stream</span> <span class="n">has</span> <span class="n">already</span> <span class="n">been</span> <span class="n">operated</span> <span class="n">upon</span> <span class="n">or</span> <span class="n">closed</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation.</p>
 </div>
 
 
@@ -153,7 +160,7 @@
 
 
 
-<time class='entry-date' datetime='2018-06-06T18:02:25+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>6:02 pm</span></time>
+<time class='entry-date' datetime='2018-06-22T22:08:32+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2018</span></span> <span class='time'>10:08 pm</span></time>
       
 
 
@@ -161,7 +168,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dannysuen.github.io/blog/2018/06/06/java-stream-api/" data-via="" data-counturl="http://dannysuen.github.io/blog/2018/06/06/java-stream-api/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dannysuen.github.io/blog/2018/06/22/java-date-and-time-problem/" data-via="" data-counturl="http://dannysuen.github.io/blog/2018/06/22/java-date-and-time-problem/" >Tweet</a>
   
   
   
@@ -170,10 +177,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2018/06/06/lambda-expressions/" title="Previous Post: lambda expressions">&laquo; lambda expressions</a>
+        <a class="basic-alignment left" href="/blog/2018/06/21/git-cookbook/" title="Previous Post: Git Cookbook">&laquo; Git Cookbook</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2018/06/07/applying-for-a-singapore-tourist-visa/" title="Next Post: 在境外申请新加坡旅游签证攻略">在境外申请新加坡旅游签证攻略 &raquo;</a>
       
     </p>
   </footer>

@@ -9,8 +9,23 @@
   <meta name="author" content="Danny Yu Sun">
 
   
-  <meta name="description" content="Android官方文档里
-">
+  <meta name="description" content="https://www.hackerrank.com/challenges/java-date-and-time/problem 这道算法题使用Java 8的Date &amp; Time API很容易解决了。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +88,131 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2018/06/22/java-date-and-time-problem/">Java Date and Time Problem</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-06-22T22:08:32+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2018</span></span> <span class='time'>10:08 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://www.hackerrank.com/challenges/java-date-and-time/problem">https://www.hackerrank.com/challenges/java-date-and-time/problem</a></p>
+
+<p>这道算法题使用Java 8的Date &amp; Time API很容易解决了。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getDay</span><span class="o">(</span><span class="n">String</span> <span class="n">day</span><span class="o">,</span> <span class="n">String</span> <span class="n">month</span><span class="o">,</span> <span class="n">String</span> <span class="n">year</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">day</span><span class="o">);</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">month</span><span class="o">);</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">year</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">LocalDate</span> <span class="n">date</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">y</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">d</span><span class="o">);</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">date</span><span class="o">.</span><span class="na">getDayOfWeek</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">String</span> <span class="n">month</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">String</span> <span class="n">day</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">String</span> <span class="n">year</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getDay</span><span class="o">(</span><span class="n">day</span><span class="o">,</span> <span class="n">month</span><span class="o">,</span> <span class="n">year</span><span class="o">));</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/06/21/git-cookbook/">Git Cookbook</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-06-21T12:07:45+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2018</span></span> <span class='time'>12:07 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>如何重命名本地和远程分支</h3>
+
+<h3>如何删除本地和远程分支</h3>
+
+<h3>如何撤销已被push到远程Git仓库的最新的commit</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git revert HEAD
+</span><span class='line'>git push</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>如何从某个分支cherry-pick一个commit，并生成patch文件</h3>
+
+<h3>如何stash当前分支本地的修改</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git stash</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>如何unstash本地修改</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git stash pop</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2018/06/16/java-8-date-and-time-api/">Java 8 Date & Time API</a></h1>
     
     
@@ -90,6 +230,20 @@
 
 
   <div class="entry-content"><p><a href="https://developer.android.com/reference/java/time/package-summary">Android官方文档里</a></p>
+
+<p><code>java.time.temporal</code>: lower level access to the fields.      <br/>
+<code>java.time.format</code>: customization options.</p>
+
+<blockquote><p>The offset-based date-time types OffsetTime and OffsetDateTime, are intended primarily for use with network protocols and database access. For example, most databases cannot automatically store a time-zone like &lsquo;Europe/Paris&rsquo;, but they can store an offset like &lsquo;+02:00&rsquo;.</p></blockquote>
+
+<h2>获取当前月份</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Month</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">Instant</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">atZone</span><span class="o">(</span><span class="n">ZoneId</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;Asia/Bangkok&quot;</span><span class="o">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 </div>
   
   
@@ -541,142 +695,9 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2018/06/06/java-8-functional-interfaces-notes/">Java 8 Functional Interfaces笔记</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2018-06-06T17:15:33+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>5:15 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近在准备OCJP 8考试，需要熟悉一下Java 8引入的函数式编程的概念。具体包括了Functional Interfaces、Lambda表达式、Stream API等新知识。</p>
-
-<p>最值得阅读的文档一般都是官方文档。<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/function/package-summary">Android</a>都有文档的链接。</p>
-
-<h2>4个内建(Built-in)的Functional interfaces</h2>
-
-<p>Functional Interfaces，或称为函数式接口，主要是指列于<code>java.util.function</code>包下的所有新的接口。它们被设计出来以满足通用的需求。乍看下共有43个接口，会觉得很吓人。其实它们都是从4个最典型的接口派生而来，为了某个specialization的、更具体化的场景而设计的，说白了就是为了让程序员能够根据需求选择出最具体化的接口。</p>
-
-<h3>1. Function接口</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@FunctionalInterface</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="n">T</span><span class="o">,</span> <span class="n">R</span><span class="o">&gt;</span> <span class="o">{</span>
-</span><span class='line'>    <span class="cm">/**</span>
-</span><span class='line'><span class="cm">     * Applies this function to the given argument.</span>
-</span><span class='line'><span class="cm">     *</span>
-</span><span class='line'><span class="cm">     * @param t the function argument</span>
-</span><span class='line'><span class="cm">     * @return the function result</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="n">R</span> <span class="nf">apply</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>2. Supplier接口</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@FunctionalInterface</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
-</span><span class='line'>    <span class="cm">/**</span>
-</span><span class='line'><span class="cm">     * Gets a result.</span>
-</span><span class='line'><span class="cm">     *</span>
-</span><span class='line'><span class="cm">     * @return a result</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="n">T</span> <span class="nf">get</span><span class="o">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>3. Predicate接口</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@FunctionalInterface</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Predicate</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
-</span><span class='line'>    <span class="cm">/**</span>
-</span><span class='line'><span class="cm">     * Evaluates this predicate on the given argument.</span>
-</span><span class='line'><span class="cm">     *</span>
-</span><span class='line'><span class="cm">     * @param t the input argument</span>
-</span><span class='line'><span class="cm">     * @return {@code true} if the input argument matches the predicate,</span>
-</span><span class='line'><span class="cm">     * otherwise {@code false}</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="kt">boolean</span> <span class="nf">test</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>4. Consumer接口</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@FunctionalInterface</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Consumer</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
-</span><span class='line'>    <span class="cm">/**</span>
-</span><span class='line'><span class="cm">     * Performs this operation on the given argument.</span>
-</span><span class='line'><span class="cm">     *</span>
-</span><span class='line'><span class="cm">     * @param t the input argument</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Lambda表达式和函数式接口并不是一一对应的关系，一个Lambda表达式可以与多个Functional Interfaces兼容（compatible）。</p>
-
-<h2>Primitive Functional Interfaces</h2>
-
-<p>Primitive Functional Interfaces只包含<code>double</code>、<code>int</code>和<code>long</code>类型，而不包含<code>char</code>、<code>float</code>和<code>short</code>类型，所以<code>java.util.function</code>包下就不存在类似<code>CharSupplier</code>的接口。</p>
-
-<h2>补充</h2>
-
-<p>arity的解释是"元数"，就是参数数目的意思。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/posts/2">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -689,6 +710,14 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2018/06/22/java-date-and-time-problem/">Java Date and Time Problem</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/06/21/git-cookbook/">Git Cookbook</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/06/16/java-8-date-and-time-api/">Java 8 Date & Time API</a>
       </li>
     
@@ -698,14 +727,6 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
     
       <li class="post">
         <a href="/blog/2018/06/12/java-generics/">Java泛型中一些难点解析</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/06/11/java-8-optional/">Java 8 Optional类的要点分析</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/06/11/introduction-to-java-8/">Introduction to Java 8</a>
       </li>
     
   </ul>
