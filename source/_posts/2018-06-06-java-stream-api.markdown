@@ -36,3 +36,5 @@ Stream实例只能被使用一次，否则会抛出Runtime Exception：
 ```
 java.lang.IllegalStateException: stream has already been operated upon or closed
 ```
+
+The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation. 

@@ -85,3 +85,6 @@ public<U> Optional<U> flatMap(Function<? super T, Optional<U>> mapper) {
 ```
 
 可见两者唯一的区别就是map方法在最后用 `Optional.ofNullable` 包装了返回值，而flatMap没有。
+
+## Optional类的primitive版本
+`OptionalInt`、`OptionalLong`、`OptionalDouble`，它们的对应`get`方法签名变成了`getAsInt`、`getAsLong`、`getAsDouble`。
