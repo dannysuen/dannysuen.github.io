@@ -5,8 +5,10 @@ date: 2018-06-06 18:02:25 +0700
 comments: true
 categories:
 ---
-
 Java 8引入了Stream的概念，掌握这个概念的最佳方式是阅读Java官方文档。
+
+<!-- more -->
+
 可以浏览一下Oracle Java文档或是[Android官方文档](https://developer.android.com/reference/java/util/stream/package-summary)。
 
 有些关键的概念需要掌握：stream、source、stream pipeline、stream operations、intermediate operations、terminal operation。
@@ -37,4 +39,4 @@ Stream实例只能被使用一次，否则会抛出Runtime Exception：
 java.lang.IllegalStateException: stream has already been operated upon or closed
 ```
 
-The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation. 
+The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation.

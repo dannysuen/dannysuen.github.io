@@ -8,6 +8,8 @@ categories:
 
 首先仔细浏览[Oracle](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)和[Android](https://developer.android.com/reference/java/util/Optional)官方API文档。
 
+<!-- more -->
+
 然后仔细浏览Urma所著的Oracle的Java官方[Tutorial](http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html)。
 
 Urma关于空指针的一段话：

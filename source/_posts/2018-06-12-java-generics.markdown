@@ -7,6 +7,9 @@ categories:
 ---
 
 Joshua Bloch：
+
+<!-- more -->
+
 >For maximum flexibility, use wildcard types on input parameters that represent producers or consumers. If an input parameter is both a producer and a consumer, then wildcard types will do you no good: you
 need an exact type match, which is what you get without any wildcards. Here is a mnemonic to help you remember which wildcard type to use:
 PECS stands for producer-extends, consumer-super.

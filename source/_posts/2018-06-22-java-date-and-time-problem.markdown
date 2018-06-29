@@ -8,6 +8,8 @@ categories:
 
 https://www.hackerrank.com/challenges/java-date-and-time/problem
 
+<!-- more -->
+
 这道算法题使用Java 8的Date & Time API很容易解决了。
 
 ```java
