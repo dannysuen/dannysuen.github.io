@@ -3,5 +3,13 @@ layout: post
 title: "apply for myammar visa the easy way"
 date: 2018-06-29 22:36:17 +0700
 comments: true
-categories: 
+categories: 旅游
 ---
+
+从没想到缅甸签证原来那么好办，当然我指的是电子签证。
+
+[网办缅甸签证的官网](https://evisa.moip.gov.mm/index.aspx)
+
+
+
+
