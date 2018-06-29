@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Danny Yu Sun's Blog]]></title>
+  <title><![CDATA[孙昱的博客]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-29T21:50:37+07:00</updated>
+  <updated>2018-06-29T22:17:46+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -25,7 +25,7 @@
 
 <p>当时一个年级的一个同学很是厉害，报考并通过了SCJP考试（如果没记错应该是Java 5的版本），当时很是很羡慕，也开始盘算去报考认证一下。</p>
 
-<p>记得当时考试需要400元左右，如果在学校内的考点报考只需一半的费用，机会难得的</p>
+<p>记得当时考试需要400元左右，如果在学校内的考点报考只需一半的费用，机会难得的。</p>
 ]]></content>
   </entry>
   
