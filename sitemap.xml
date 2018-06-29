@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://dannysuen.github.io/blog/2018/06/29/apply-for-myammar-visa-the-easy-way/</loc>
+<lastmod>2018-06-29T22:36:17+07:00</lastmod>
+</url>
+<url>
 <loc>http://dannysuen.github.io/blog/2018/06/29/my-ocja-and-ocjp-journey/</loc>
 <lastmod>2018-06-29T19:02:38+07:00</lastmod>
 </url>
@@ -74,5 +78,8 @@
 </url>
 <url>
 <loc>http://dannysuen.github.io/blog/categories/lu-you/</loc>
+</url>
+<url>
+<loc>http://dannysuen.github.io/posts/2/</loc>
 </url>
 </urlset>
