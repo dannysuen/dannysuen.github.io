@@ -1,11 +1,13 @@
 ---
 layout: post
-title: "Java的断言"
+title: "Java中的assert断言"
 date: 2018-06-29 15:52:18 +0700
 comments: true
-categories:
+categories: Java
 ---
 使用Java已经有了10个年头，难以想象居然很少使用assert关键字。
+
+[Oracle官方指南](https://docs.oracle.com/javase/8/docs/technotes/guides/language/assert.html)中详细介绍了assert的用法。
 
 <!-- more -->
 

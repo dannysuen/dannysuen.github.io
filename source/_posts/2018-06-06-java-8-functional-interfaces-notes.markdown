@@ -3,7 +3,7 @@ layout: post
 title: "Java 8 Functional Interfaces笔记"
 date: 2018-06-06 17:15:33 +0700
 comments: true
-categories:
+categories: Java
 ---
 最近在准备OCJP 8考试，需要熟悉一下Java 8引入的函数式编程的概念。具体包括了Functional Interfaces、Lambda表达式、Stream API等新知识。
 
