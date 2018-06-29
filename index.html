@@ -9,23 +9,7 @@
   <meta name="author" content="Danny Yu Sun">
 
   
-  <meta name="description" content="https://www.hackerrank.com/challenges/java-date-and-time/problem 这道算法题使用Java 8的Date &amp; Time API很容易解决了。 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17 &hellip;">
+  <meta name="description" content="使用Java已经有了10个年头，难以想象居然很少使用assert关键字。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,6 +72,74 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2018/06/29/java-assertions/">Java的断言</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-06-29T15:52:18+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>3:52 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>使用Java已经有了10个年头，难以想象居然很少使用assert关键字。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/06/29/java-assertions/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/06/23/david-pawson-provert-part1/">David Pawson《箴言》第一部观感</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-06-23T07:39:16+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2018</span></span> <span class='time'>7:39 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>箴言这卷书一共有九百条箴言，涵盖人生各个层面，涵盖各种主题。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/06/23/david-pawson-provert-part1/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2018/06/22/java-date-and-time-problem/">Java Date and Time Problem</a></h1>
     
     
@@ -106,50 +158,12 @@
 
   <div class="entry-content"><p><a href="https://www.hackerrank.com/challenges/java-date-and-time/problem">https://www.hackerrank.com/challenges/java-date-and-time/problem</a></p>
 
-<p>这道算法题使用Java 8的Date &amp; Time API很容易解决了。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getDay</span><span class="o">(</span><span class="n">String</span> <span class="n">day</span><span class="o">,</span> <span class="n">String</span> <span class="n">month</span><span class="o">,</span> <span class="n">String</span> <span class="n">year</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">day</span><span class="o">);</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">month</span><span class="o">);</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">year</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">LocalDate</span> <span class="n">date</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">y</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">d</span><span class="o">);</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">date</span><span class="o">.</span><span class="na">getDayOfWeek</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">String</span> <span class="n">month</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">String</span> <span class="n">day</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">String</span> <span class="n">year</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getDay</span><span class="o">(</span><span class="n">day</span><span class="o">,</span> <span class="n">month</span><span class="o">,</span> <span class="n">year</span><span class="o">));</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/06/22/java-date-and-time-problem/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -176,33 +190,14 @@
   </header>
 
 
-  <div class="entry-content"><h3>如何重命名本地和远程分支</h3>
-
-<h3>如何删除本地和远程分支</h3>
-
-<h3>如何撤销已被push到远程Git仓库的最新的commit</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git revert HEAD
-</span><span class='line'>git push</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>如何从某个分支cherry-pick一个commit，并生成patch文件</h3>
-
-<h3>如何stash当前分支本地的修改</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git stash</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>如何unstash本地修改</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git stash pop</span></code></pre></td></tr></table></div></figure>
+  <div class="entry-content"><p>这个博客包含了在日常开发中经常会使用，但是却不太容易记住的Git命令和用法。</p>
 
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/06/21/git-cookbook/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -234,18 +229,12 @@
 <p><code>java.time.temporal</code>: lower level access to the fields.      <br/>
 <code>java.time.format</code>: customization options.</p>
 
-<blockquote><p>The offset-based date-time types OffsetTime and OffsetDateTime, are intended primarily for use with network protocols and database access. For example, most databases cannot automatically store a time-zone like &lsquo;Europe/Paris&rsquo;, but they can store an offset like &lsquo;+02:00&rsquo;.</p></blockquote>
-
-<h2>获取当前月份</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Month</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">Instant</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">atZone</span><span class="o">(</span><span class="n">ZoneId</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;Asia/Bangkok&quot;</span><span class="o">));</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/06/16/java-8-date-and-time-api/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -274,13 +263,12 @@
 
   <div class="entry-content"><p>自从16年10月到泰国工作，迄今已经超过一年半了。我也想分享一下如何去泰国工作，其中最重要的就是签证问题。</p>
 
-<p>根据来泰国的目的，需要申请对应的签证。对于大多数人来说旅游签的门槛很低，但是持有旅游签是不能直接来泰国申请Work Permit的。事实上这种做法是非法的。</p>
-
-<p>事实上有两个法律凭证需要搞清楚，第一个是工作签证；第二个是工作证。</p>
-
-<h2>需要解答的问题</h2>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/06/14/applying-visa-to-work-in-thailand/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -309,42 +297,12 @@
 
   <div class="entry-content"><p>Joshua Bloch：</p>
 
-<blockquote><p>For maximum flexibility, use wildcard types on input parameters that represent producers or consumers. If an input parameter is both a producer and a consumer, then wildcard types will do you no good: you
-need an exact type match, which is what you get without any wildcards. Here is a mnemonic to help you remember which wildcard type to use:
-PECS stands for producer-extends, consumer-super.</p></blockquote>
-
-<p>参考Stackoverflow上这个<a href="https://stackoverflow.com/questions/4343202/difference-between-super-t-and-extends-t-in-java">问答</a>或是参考这个<a href="http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeArguments.html#FAQ103">Java Generics FAQs</a></p>
-
-<h3>What is a bounded wildcard?</h3>
-
-<p>A wildcard with either an upper or a lower bound.
-A wildcard with an upper bound looks like &ldquo; ? extends Type &rdquo; and stands for the family of all types that are subtypes of Type , type Type being included.  Type is called the upper bound .
-A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands for the family of all types that are supertypes of Type , type Type being included. Type is called the lower bound .</p>
-
-<p>Bounded wildcards are used as arguments for instantiation of generic types.  Bounded wildcards are useful in situations where only partial knowledge about the type argument of a parameterized type is needed, but where unbounded wildcards carry too little type information.</p>
-
-<p>Example:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Collections</span> <span class="o">{</span>
-</span><span class='line'>  <span class="c1">// bounded wildcard parameterized types</span>
-</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">copy</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">dest</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">src</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">src</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span>
-</span><span class='line'>        <span class="n">dest</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">src</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
-</span><span class='line'>  <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The copy method copies elements from a source list into a destination list.  The destination list must be capable of holding the elements from the source list.  We express this by means of bounded wildcards: the output list is required to have an element type with a lower bound T and the input list must have an element type with an upper bound T .</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/06/12/java-generics/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -373,156 +331,12 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
 
   <div class="entry-content"><p>首先仔细浏览<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/Optional">Android</a>官方API文档。</p>
 
-<p>然后仔细浏览Urma所著的Oracle的Java官方<a href="http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html">Tutorial</a>。</p>
-
-<p>Urma关于空指针的一段话：</p>
-
-<blockquote><p>I will argue in this article that using null to represent the absence of a value is a wrong approach. What we need is a better way to model the absence and presence of a value.</p></blockquote>
-
-<p>关于引入<code>java.util.Optional</code>类的初衷：</p>
-
-<blockquote><p>It is important to note that the intention of the Optional class is not to replace every single null reference. Instead, its purpose is to help design more-comprehensible APIs so that by just reading the signature of a method, you can tell whether you can expect an optional value. This forces you to actively unwrap an Optional to deal with the absence of a value.</p></blockquote>
-
-<h2>Optional.map和Optional.flatMap的区别</h2>
-
-<p>其实只要仔细读读Optional类的源码就明白两者的区别了：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * If a value is present, apply the provided mapping function to it,</span>
-</span><span class='line'><span class="cm"> * and if the result is non-null, return an {@code Optional} describing the</span>
-</span><span class='line'><span class="cm"> * result.  Otherwise return an empty {@code Optional}.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * @apiNote This method supports post-processing on optional values, without</span>
-</span><span class='line'><span class="cm"> * the need to explicitly check for a return status.  For example, the</span>
-</span><span class='line'><span class="cm"> * following code traverses a stream of file names, selects one that has</span>
-</span><span class='line'><span class="cm"> * not yet been processed, and then opens that file, returning an</span>
-</span><span class='line'><span class="cm"> * {@code Optional&lt;FileInputStream&gt;}:</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * &lt;pre&gt;{@code</span>
-</span><span class='line'><span class="cm"> *     Optional&lt;FileInputStream&gt; fis =</span>
-</span><span class='line'><span class="cm"> *         names.stream().filter(name -&gt; !isProcessedYet(name))</span>
-</span><span class='line'><span class="cm"> *                       .findFirst()</span>
-</span><span class='line'><span class="cm"> *                       .map(name -&gt; new FileInputStream(name));</span>
-</span><span class='line'><span class="cm"> * }&lt;/pre&gt;</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * Here, {@code findFirst} returns an {@code Optional&lt;String&gt;}, and then</span>
-</span><span class='line'><span class="cm"> * {@code map} returns an {@code Optional&lt;FileInputStream&gt;} for the desired</span>
-</span><span class='line'><span class="cm"> * file if one exists.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * @param &lt;U&gt; The type of the result of the mapping function</span>
-</span><span class='line'><span class="cm"> * @param mapper a mapping function to apply to the value, if present</span>
-</span><span class='line'><span class="cm"> * @return an {@code Optional} describing the result of applying a mapping</span>
-</span><span class='line'><span class="cm"> * function to the value of this {@code Optional}, if a value is present,</span>
-</span><span class='line'><span class="cm"> * otherwise an empty {@code Optional}</span>
-</span><span class='line'><span class="cm"> * @throws NullPointerException if the mapping function is null</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="nf">map</span><span class="o">(</span><span class="n">Function</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">,</span> <span class="o">?</span> <span class="kd">extends</span> <span class="n">U</span><span class="o">&gt;</span> <span class="n">mapper</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">mapper</span><span class="o">);</span>
-</span><span class='line'>    <span class="k">if</span> <span class="o">(!</span><span class="n">isPresent</span><span class="o">())</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nf">empty</span><span class="o">();</span>
-</span><span class='line'>    <span class="k">else</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">mapper</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">value</span><span class="o">));</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * If a value is present, apply the provided {@code Optional}-bearing</span>
-</span><span class='line'><span class="cm"> * mapping function to it, return that result, otherwise return an empty</span>
-</span><span class='line'><span class="cm"> * {@code Optional}.  This method is similar to {@link #map(Function)},</span>
-</span><span class='line'><span class="cm"> * but the provided mapper is one whose result is already an {@code Optional},</span>
-</span><span class='line'><span class="cm"> * and if invoked, {@code flatMap} does not wrap it with an additional</span>
-</span><span class='line'><span class="cm"> * {@code Optional}.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * @param &lt;U&gt; The type parameter to the {@code Optional} returned by</span>
-</span><span class='line'><span class="cm"> * @param mapper a mapping function to apply to the value, if present</span>
-</span><span class='line'><span class="cm"> *           the mapping function</span>
-</span><span class='line'><span class="cm"> * @return the result of applying an {@code Optional}-bearing mapping</span>
-</span><span class='line'><span class="cm"> * function to the value of this {@code Optional}, if a value is present,</span>
-</span><span class='line'><span class="cm"> * otherwise an empty {@code Optional}</span>
-</span><span class='line'><span class="cm"> * @throws NullPointerException if the mapping function is null or returns</span>
-</span><span class='line'><span class="cm"> * a null result</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="nf">flatMap</span><span class="o">(</span><span class="n">Function</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">,</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;</span> <span class="n">mapper</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">mapper</span><span class="o">);</span>
-</span><span class='line'>    <span class="k">if</span> <span class="o">(!</span><span class="n">isPresent</span><span class="o">())</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nf">empty</span><span class="o">();</span>
-</span><span class='line'>    <span class="k">else</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">mapper</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">value</span><span class="o">));</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>可见两者唯一的区别就是map方法在最后用 <code>Optional.ofNullable</code> 包装了返回值，而flatMap没有。</p>
-
-<h2>Optional类的primitive版本</h2>
-
-<p><code>OptionalInt</code>、<code>OptionalLong</code>、<code>OptionalDouble</code>，它们的对应<code>get</code>方法签名变成了<code>getAsInt</code>、<code>getAsLong</code>、<code>getAsDouble</code>。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/06/11/java-8-optional/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -586,115 +400,6 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2018/06/06/java-stream-api/">Java Stream API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2018-06-06T18:02:25+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>6:02 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Java 8引入了Stream的概念，掌握这个概念的最佳方式是阅读Java官方文档。
-可以浏览一下Oracle Java文档或是<a href="https://developer.android.com/reference/java/util/stream/package-summary">Android官方文档</a>。</p>
-
-<p>有些关键的概念需要掌握：stream、source、stream pipeline、stream operations、intermediate operations、terminal operation。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * Returns a sequential {@code Stream} with this collection as its source.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * &lt;p&gt;This method should be overridden when the {@link #spliterator()}</span>
-</span><span class='line'><span class="cm"> * method cannot return a spliterator that is {@code IMMUTABLE},</span>
-</span><span class='line'><span class="cm"> * {@code CONCURRENT}, or &lt;em&gt;late-binding&lt;/em&gt;. (See {@link #spliterator()}</span>
-</span><span class='line'><span class="cm"> * for details.)</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * @implSpec</span>
-</span><span class='line'><span class="cm"> * The default implementation creates a sequential {@code Stream} from the</span>
-</span><span class='line'><span class="cm"> * collection&#39;s {@code Spliterator}.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * @return a sequential {@code Stream} over the elements in this collection</span>
-</span><span class='line'><span class="cm"> * @since 1.8</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="k">default</span> <span class="n">Stream</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">stream</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">StreamSupport</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">spliterator</span><span class="o">(),</span> <span class="kc">false</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Stream实例只能被使用一次，否则会抛出Runtime Exception：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">stream</span> <span class="n">has</span> <span class="n">already</span> <span class="n">been</span> <span class="n">operated</span> <span class="n">upon</span> <span class="n">or</span> <span class="n">closed</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2018/06/06/lambda-expressions/">Lambda Expressions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2018-06-06T18:01:55+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>6:01 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -710,6 +415,14 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2018/06/29/java-assertions/">Java的断言</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/06/23/david-pawson-provert-part1/">David Pawson《箴言》第一部观感</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/06/22/java-date-and-time-problem/">Java Date and Time Problem</a>
       </li>
     
@@ -719,14 +432,6 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
     
       <li class="post">
         <a href="/blog/2018/06/16/java-8-date-and-time-api/">Java 8 Date & Time API</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/06/14/applying-visa-to-work-in-thailand/">谈谈赴泰工作的问题</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/06/12/java-generics/">Java泛型中一些难点解析</a>
       </li>
     
   </ul>

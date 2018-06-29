@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Git Cookbook - Danny Yu Sun's Blog</title>
+  <title>Java的断言 - Danny Yu Sun's Blog</title>
   <meta name="author" content="Danny Yu Sun">
 
   
-  <meta name="description" content="这个博客包含了在日常开发中经常会使用，但是却不太容易记住的Git命令和用法。 如何重命名本地和远程分支 如何删除本地和远程分支 如何撤销已被push到远程Git仓库的最新的commit 1
-2
-git revert HEAD
-git push 如何从某个分支cherry-pick一个commit， &hellip;">
+  <meta name="description" content="使用Java已经有了10个年头，难以想象居然很少使用assert关键字。 An assertion is a statement in the Java programming language that enables you to test your assumptions about &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ git push 如何从某个分支cherry-pick一个commit， &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dannysuen.github.io/blog/2018/06/21/git-cookbook/">
+  <link rel="canonical" href="http://dannysuen.github.io/blog/2018/06/29/java-assertions/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Danny Yu Sun's Blog" type="application/atom+xml">
@@ -72,7 +69,7 @@ git push 如何从某个分支cherry-pick一个commit， &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Git Cookbook</h1>
+      <h1 class="entry-title">Java的断言</h1>
     
     
       <p class="meta">
@@ -81,43 +78,23 @@ git push 如何从某个分支cherry-pick一个commit， &hellip;">
 
 
 
-<time class='entry-date' datetime='2018-06-21T12:07:45+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2018</span></span> <span class='time'>12:07 pm</span></time>
+<time class='entry-date' datetime='2018-06-29T15:52:18+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>3:52 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>这个博客包含了在日常开发中经常会使用，但是却不太容易记住的Git命令和用法。</p>
+<div class="entry-content"><p>使用Java已经有了10个年头，难以想象居然很少使用assert关键字。</p>
 
 <!-- more -->
 
 
-<h3>如何重命名本地和远程分支</h3>
+<blockquote><p>An assertion is a statement in the Java programming language that enables you to test your assumptions about your program. For example, if you write a method that calculates the speed of a particle, you might assert that the calculated speed is less than the speed of light.</p>
 
-<h3>如何删除本地和远程分支</h3>
+<p>Each assertion contains a boolean expression that you believe will be true when the assertion executes. If it is not true, the system will throw an error. By verifying that the boolean expression is indeed true, the assertion confirms your assumptions about the behavior of your program, increasing your confidence that the program is free of errors.</p>
 
-<h3>如何撤销已被push到远程Git仓库的最新的commit</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git revert HEAD
-</span><span class='line'>git push</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>如何从某个分支cherry-pick一个commit，并生成patch文件</h3>
-
-<h3>如何stash当前分支本地的修改</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git stash</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>如何unstash本地修改</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git stash pop</span></code></pre></td></tr></table></div></figure>
-
+<p>Experience has shown that writing assertions while programming is one of the quickest and most effective ways to detect and correct bugs. As an added benefit, assertions serve to document the inner workings of your program, enhancing maintainability.</p></blockquote>
 </div>
 
 
@@ -133,7 +110,7 @@ git push 如何从某个分支cherry-pick一个commit， &hellip;">
 
 
 
-<time class='entry-date' datetime='2018-06-21T12:07:45+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2018</span></span> <span class='time'>12:07 pm</span></time>
+<time class='entry-date' datetime='2018-06-29T15:52:18+07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>3:52 pm</span></time>
       
 
 
@@ -141,7 +118,7 @@ git push 如何从某个分支cherry-pick一个commit， &hellip;">
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dannysuen.github.io/blog/2018/06/21/git-cookbook/" data-via="" data-counturl="http://dannysuen.github.io/blog/2018/06/21/git-cookbook/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dannysuen.github.io/blog/2018/06/29/java-assertions/" data-via="" data-counturl="http://dannysuen.github.io/blog/2018/06/29/java-assertions/" >Tweet</a>
   
   
   
@@ -150,10 +127,8 @@ git push 如何从某个分支cherry-pick一个commit， &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2018/06/16/java-8-date-and-time-api/" title="Previous Post: Java 8 Date & Time API">&laquo; Java 8 Date & Time API</a>
+        <a class="basic-alignment left" href="/blog/2018/06/23/david-pawson-provert-part1/" title="Previous Post: David Pawson《箴言》第一部观感">&laquo; David Pawson《箴言》第一部观感</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2018/06/22/java-date-and-time-problem/" title="Next Post: Java Date and Time Problem">Java Date and Time Problem &raquo;</a>
       
     </p>
   </footer>

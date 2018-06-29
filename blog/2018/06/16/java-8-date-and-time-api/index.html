@@ -90,6 +90,9 @@
 <p><code>java.time.temporal</code>: lower level access to the fields.      <br/>
 <code>java.time.format</code>: customization options.</p>
 
+<!-- more -->
+
+
 <blockquote><p>The offset-based date-time types OffsetTime and OffsetDateTime, are intended primarily for use with network protocols and database access. For example, most databases cannot automatically store a time-zone like &lsquo;Europe/Paris&rsquo;, but they can store an offset like &lsquo;+02:00&rsquo;.</p></blockquote>
 
 <h2>获取当前月份</h2>
@@ -100,6 +103,52 @@
 
 
 <p></p>
+
+<h2>Instant</h2>
+
+<p>An Instant represents a specific moment in time using GMT.</p>
+
+<h2>Daylight Saving Time</h2>
+
+<p>The United States observes daylight savings time on March 12, 2017, by moving the clocks forward an hour at 2 a.m.</p>
+
+<p>In the United States, daylight savings time ends on November 5th, 2017 at 02:00 a.m. and we repeat the previous hour.</p>
+
+<p>实验如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">LocalDate</span> <span class="n">localDate</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2017</span><span class="o">,</span> <span class="n">Month</span><span class="o">.</span><span class="na">NOVEMBER</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+</span><span class='line'><span class="n">LocalTime</span> <span class="n">localTime</span> <span class="o">=</span> <span class="n">LocalTime</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+</span><span class='line'><span class="n">ZoneId</span> <span class="n">zone</span> <span class="o">=</span> <span class="n">ZoneId</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;America/New_York&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="n">ZonedDateTime</span> <span class="n">z</span> <span class="o">=</span> <span class="n">ZonedDateTime</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">localDate</span><span class="o">,</span> <span class="n">localTime</span><span class="o">,</span> <span class="n">zone</span><span class="o">);</span>
+</span><span class='line'><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">z</span><span class="o">.</span><span class="na">plusHours</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T01:</span><span class="mi">00</span><span class="o">-</span><span class="mi">04</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T01:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T02:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T03:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T04:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T05:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -150,6 +199,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2018/06/29/java-assertions/">Java的断言</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/06/23/david-pawson-provert-part1/">David Pawson《箴言》第一部观感</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/06/22/java-date-and-time-problem/">Java Date and Time Problem</a>
       </li>
     
@@ -159,14 +216,6 @@
     
       <li class="post">
         <a href="/blog/2018/06/16/java-8-date-and-time-api/">Java 8 Date & Time API</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/06/14/applying-visa-to-work-in-thailand/">谈谈赴泰工作的问题</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/06/12/java-generics/">Java泛型中一些难点解析</a>
       </li>
     
   </ul>

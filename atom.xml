@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Yu Sun's Blog]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-22T22:13:39+07:00</updated>
+  <updated>2018-06-29T16:00:15+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -14,11 +14,60 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Java的断言]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/29/java-assertions/"/>
+    <updated>2018-06-29T15:52:18+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/29/java-assertions</id>
+    <content type="html"><![CDATA[<p>使用Java已经有了10个年头，难以想象居然很少使用assert关键字。</p>
+
+<!-- more -->
+
+
+<blockquote><p>An assertion is a statement in the Java programming language that enables you to test your assumptions about your program. For example, if you write a method that calculates the speed of a particle, you might assert that the calculated speed is less than the speed of light.</p>
+
+<p>Each assertion contains a boolean expression that you believe will be true when the assertion executes. If it is not true, the system will throw an error. By verifying that the boolean expression is indeed true, the assertion confirms your assumptions about the behavior of your program, increasing your confidence that the program is free of errors.</p>
+
+<p>Experience has shown that writing assertions while programming is one of the quickest and most effective ways to detect and correct bugs. As an added benefit, assertions serve to document the inner workings of your program, enhancing maintainability.</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[David Pawson《箴言》第一部观感]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/23/david-pawson-provert-part1/"/>
+    <updated>2018-06-23T07:39:16+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/23/david-pawson-provert-part1</id>
+    <content type="html"><![CDATA[<p>箴言这卷书一共有九百条箴言，涵盖人生各个层面，涵盖各种主题。</p>
+
+<!-- more -->
+
+
+<p>圣经上没有世俗这个词，我们不应该使用。</p>
+
+<p>希腊思想才会把生活划分成神圣和世俗。</p>
+
+<p>圣经里的智慧和愚昧都不是指智力，而是道德。</p>
+
+<p>箴言这卷书是在讲如何善用人生，也在讲如何虚度人生，愚昧的人虚度人生。</p>
+
+<p>我们很容易虚度一生。</p>
+
+<p>人生很短，经不起你浪费一分一秒；但是人生的长度足够你活出上帝的旨意。</p>
+
+<p>箴言不是应许。在希伯来语中，箴言的意思是“就像这样”。箴言是对人生一般性的观察。至于应许是特殊的承诺，这两者要分得很清楚。</p>
+
+<p>智慧就是在某个情况下知道要应用什么箴言。箴言是一般性的常识，但是遇到不同情况的时候，需要有智慧才知道该应用哪一个箴言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Java Date and Time Problem]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/22/java-date-and-time-problem/"/>
     <updated>2018-06-22T22:08:32+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/22/java-date-and-time-problem</id>
     <content type="html"><![CDATA[<p><a href="https://www.hackerrank.com/challenges/java-date-and-time/problem">https://www.hackerrank.com/challenges/java-date-and-time/problem</a></p>
+
+<!-- more -->
+
 
 <p>这道算法题使用Java 8的Date &amp; Time API很容易解决了。</p>
 
@@ -70,7 +119,12 @@
     <link href="http://dannysuen.github.io/blog/2018/06/21/git-cookbook/"/>
     <updated>2018-06-21T12:07:45+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/21/git-cookbook</id>
-    <content type="html"><![CDATA[<h3>如何重命名本地和远程分支</h3>
+    <content type="html"><![CDATA[<p>这个博客包含了在日常开发中经常会使用，但是却不太容易记住的Git命令和用法。</p>
+
+<!-- more -->
+
+
+<h3>如何重命名本地和远程分支</h3>
 
 <h3>如何删除本地和远程分支</h3>
 
@@ -108,6 +162,9 @@
 <p><code>java.time.temporal</code>: lower level access to the fields.      <br/>
 <code>java.time.format</code>: customization options.</p>
 
+<!-- more -->
+
+
 <blockquote><p>The offset-based date-time types OffsetTime and OffsetDateTime, are intended primarily for use with network protocols and database access. For example, most databases cannot automatically store a time-zone like &lsquo;Europe/Paris&rsquo;, but they can store an offset like &lsquo;+02:00&rsquo;.</p></blockquote>
 
 <h2>获取当前月份</h2>
@@ -118,6 +175,52 @@
 
 
 <p></p>
+
+<h2>Instant</h2>
+
+<p>An Instant represents a specific moment in time using GMT.</p>
+
+<h2>Daylight Saving Time</h2>
+
+<p>The United States observes daylight savings time on March 12, 2017, by moving the clocks forward an hour at 2 a.m.</p>
+
+<p>In the United States, daylight savings time ends on November 5th, 2017 at 02:00 a.m. and we repeat the previous hour.</p>
+
+<p>实验如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">LocalDate</span> <span class="n">localDate</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2017</span><span class="o">,</span> <span class="n">Month</span><span class="o">.</span><span class="na">NOVEMBER</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+</span><span class='line'><span class="n">LocalTime</span> <span class="n">localTime</span> <span class="o">=</span> <span class="n">LocalTime</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+</span><span class='line'><span class="n">ZoneId</span> <span class="n">zone</span> <span class="o">=</span> <span class="n">ZoneId</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;America/New_York&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="n">ZonedDateTime</span> <span class="n">z</span> <span class="o">=</span> <span class="n">ZonedDateTime</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">localDate</span><span class="o">,</span> <span class="n">localTime</span><span class="o">,</span> <span class="n">zone</span><span class="o">);</span>
+</span><span class='line'><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">z</span><span class="o">.</span><span class="na">plusHours</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T01:</span><span class="mi">00</span><span class="o">-</span><span class="mi">04</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T01:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T02:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T03:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T04:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span><span class='line'><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="nl">T05:</span><span class="mi">00</span><span class="o">-</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span><span class="o">[</span><span class="n">America</span><span class="o">/</span><span class="n">New_York</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
@@ -127,6 +230,9 @@
     <updated>2018-06-14T16:48:42+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/14/applying-visa-to-work-in-thailand</id>
     <content type="html"><![CDATA[<p>自从16年10月到泰国工作，迄今已经超过一年半了。我也想分享一下如何去泰国工作，其中最重要的就是签证问题。</p>
+
+<!-- more -->
+
 
 <p>根据来泰国的目的，需要申请对应的签证。对于大多数人来说旅游签的门槛很低，但是持有旅游签是不能直接来泰国申请Work Permit的。事实上这种做法是非法的。</p>
 
@@ -142,6 +248,9 @@
     <updated>2018-06-12T11:44:52+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/12/java-generics</id>
     <content type="html"><![CDATA[<p>Joshua Bloch：</p>
+
+<!-- more -->
+
 
 <blockquote><p>For maximum flexibility, use wildcard types on input parameters that represent producers or consumers. If an input parameter is both a producer and a consumer, then wildcard types will do you no good: you
 need an exact type match, which is what you get without any wildcards. Here is a mnemonic to help you remember which wildcard type to use:
@@ -186,6 +295,9 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
     <updated>2018-06-11T21:15:02+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/11/java-8-optional</id>
     <content type="html"><![CDATA[<p>首先仔细浏览<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/Optional">Android</a>官方API文档。</p>
+
+<!-- more -->
+
 
 <p>然后仔细浏览Urma所著的Oracle的Java官方<a href="http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html">Tutorial</a>。</p>
 
@@ -361,8 +473,12 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
     <link href="http://dannysuen.github.io/blog/2018/06/06/java-stream-api/"/>
     <updated>2018-06-06T18:02:25+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/06/java-stream-api</id>
-    <content type="html"><![CDATA[<p>Java 8引入了Stream的概念，掌握这个概念的最佳方式是阅读Java官方文档。
-可以浏览一下Oracle Java文档或是<a href="https://developer.android.com/reference/java/util/stream/package-summary">Android官方文档</a>。</p>
+    <content type="html"><![CDATA[<p>Java 8引入了Stream的概念，掌握这个概念的最佳方式是阅读Java官方文档。</p>
+
+<!-- more -->
+
+
+<p>可以浏览一下Oracle Java文档或是<a href="https://developer.android.com/reference/java/util/stream/package-summary">Android官方文档</a>。</p>
 
 <p>有些关键的概念需要掌握：stream、source、stream pipeline、stream operations、intermediate operations、terminal operation。</p>
 
@@ -431,6 +547,9 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
     <updated>2018-06-06T17:15:33+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/06/java-8-functional-interfaces-notes</id>
     <content type="html"><![CDATA[<p>最近在准备OCJP 8考试，需要熟悉一下Java 8引入的函数式编程的概念。具体包括了Functional Interfaces、Lambda表达式、Stream API等新知识。</p>
+
+<!-- more -->
+
 
 <p>最值得阅读的文档一般都是官方文档。<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/function/package-summary">Android</a>都有文档的链接。</p>
 
