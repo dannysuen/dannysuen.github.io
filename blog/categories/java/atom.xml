@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Java | Danny Yu Sun's Blog]]></title>
+  <link href="http://dannysuen.github.io/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://dannysuen.github.io/"/>
+  <updated>2018-06-29T21:50:37+07:00</updated>
+  <id>http://dannysuen.github.io/</id>
+  <author>
+    <name><![CDATA[Danny Yu Sun]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Java中的assert断言]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/29/java-assertions/"/>
+    <updated>2018-06-29T15:52:18+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/29/java-assertions</id>
+    <content type="html"><![CDATA[<p>使用Java已经有了10个年头，难以想象居然很少使用assert关键字。</p>
+
+<p><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/language/assert.html">Oracle官方指南</a>中详细介绍了assert的用法。</p>
+
+<!-- more -->
+
+
+<blockquote><p>An assertion is a statement in the Java programming language that enables you to test your assumptions about your program. For example, if you write a method that calculates the speed of a particle, you might assert that the calculated speed is less than the speed of light.</p>
+
+<p>Each assertion contains a boolean expression that you believe will be true when the assertion executes. If it is not true, the system will throw an error. By verifying that the boolean expression is indeed true, the assertion confirms your assumptions about the behavior of your program, increasing your confidence that the program is free of errors.</p>
+
+<p>Experience has shown that writing assertions while programming is one of the quickest and most effective ways to detect and correct bugs. As an added benefit, assertions serve to document the inner workings of your program, enhancing maintainability.</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Introduction to Java 8]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/11/introduction-to-java-8/"/>
+    <updated>2018-06-11T11:59:30+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/11/introduction-to-java-8</id>
+    <content type="html"><![CDATA[<p>关于<a href="http://math.hws.edu/javanotes/glossary.html">Java的术语总结</a>。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Java Stream API]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/06/java-stream-api/"/>
+    <updated>2018-06-06T18:02:25+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/06/java-stream-api</id>
+    <content type="html"><![CDATA[<p>Java 8引入了Stream的概念，掌握这个概念的最佳方式是阅读Java官方文档。</p>
+
+<!-- more -->
+
+
+<p>可以浏览一下Oracle Java文档或是<a href="https://developer.android.com/reference/java/util/stream/package-summary">Android官方文档</a>。</p>
+
+<p>有些关键的概念需要掌握：stream、source、stream pipeline、stream operations、intermediate operations、terminal operation。</p>
+
+<pre><code class="java">/**
+ * Returns a sequential {@code Stream} with this collection as its source.
+ *
+ * &lt;p&gt;This method should be overridden when the {@link #spliterator()}
+ * method cannot return a spliterator that is {@code IMMUTABLE},
+ * {@code CONCURRENT}, or &lt;em&gt;late-binding&lt;/em&gt;. (See {@link #spliterator()}
+ * for details.)
+ *
+ * @implSpec
+ * The default implementation creates a sequential {@code Stream} from the
+ * collection's {@code Spliterator}.
+ *
+ * @return a sequential {@code Stream} over the elements in this collection
+ * @since 1.8
+ */
+default Stream&lt;E&gt; stream() {
+    return StreamSupport.stream(spliterator(), false);
+}
+</code></pre>
+
+<p>Stream实例只能被使用一次，否则会抛出Runtime Exception：
+<code>
+java.lang.IllegalStateException: stream has already been operated upon or closed
+</code></p>
+
+<p>The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lambda Expressions]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/06/lambda-expressions/"/>
+    <updated>2018-06-06T18:01:55+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/06/lambda-expressions</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Java 8 Functional Interfaces笔记]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/06/06/java-8-functional-interfaces-notes/"/>
+    <updated>2018-06-06T17:15:33+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/06/06/java-8-functional-interfaces-notes</id>
+    <content type="html"><![CDATA[<p>最近在准备OCJP 8考试，需要熟悉一下Java 8引入的函数式编程的概念。具体包括了Functional Interfaces、Lambda表达式、Stream API等新知识。</p>
+
+<!-- more -->
+
+
+<p>最值得阅读的文档一般都是官方文档。<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/function/package-summary">Android</a>都有文档的链接。</p>
+
+<h2>4个内建(Built-in)的Functional interfaces</h2>
+
+<p>Functional Interfaces，或称为函数式接口，主要是指列于<code>java.util.function</code>包下的所有新的接口。它们被设计出来以满足通用的需求。乍看下共有43个接口，会觉得很吓人。其实它们都是从4个最典型的接口派生而来，为了某个specialization的、更具体化的场景而设计的，说白了就是为了让程序员能够根据需求选择出最具体化的接口。</p>
+
+<h3>1. Function接口</h3>
+
+<pre><code class="java">@FunctionalInterface
+public interface Function&lt;T, R&gt; {
+    /**
+     * Applies this function to the given argument.
+     *
+     * @param t the function argument
+     * @return the function result
+     */
+    R apply(T t);
+</code></pre>
+
+<h3>2. Supplier接口</h3>
+
+<pre><code class="java">@FunctionalInterface
+public interface Supplier&lt;T&gt; {
+    /**
+     * Gets a result.
+     *
+     * @return a result
+     */
+    T get();
+</code></pre>
+
+<h3>3. Predicate接口</h3>
+
+<pre><code class="java">@FunctionalInterface
+public interface Predicate&lt;T&gt; {
+    /**
+     * Evaluates this predicate on the given argument.
+     *
+     * @param t the input argument
+     * @return {@code true} if the input argument matches the predicate,
+     * otherwise {@code false}
+     */
+    boolean test(T t);
+</code></pre>
+
+<h3>4. Consumer接口</h3>
+
+<pre><code class="java">@FunctionalInterface
+public interface Consumer&lt;T&gt; {
+    /**
+     * Performs this operation on the given argument.
+     *
+     * @param t the input argument
+     */
+    void accept(T t);
+</code></pre>
+
+<p>Lambda表达式和函数式接口并不是一一对应的关系，一个Lambda表达式可以与多个Functional Interfaces兼容（compatible）。</p>
+
+<h2>Primitive Functional Interfaces</h2>
+
+<p>Primitive Functional Interfaces只包含<code>double</code>、<code>int</code>和<code>long</code>类型，而不包含<code>char</code>、<code>float</code>和<code>short</code>类型，所以<code>java.util.function</code>包下就不存在类似<code>CharSupplier</code>的接口。</p>
+
+<h2>补充</h2>
+
+<p>arity的解释是"元数"，就是参数数目的意思。</p>
+]]></content>
+  </entry>
+  
+</feed>
