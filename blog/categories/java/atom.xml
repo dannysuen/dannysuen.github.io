@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | 孙昱的博客]]></title>
   <link href="http://dannysuen.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-06-29T22:43:10+07:00</updated>
+  <updated>2018-07-09T17:00:03+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -82,6 +82,24 @@ java.lang.IllegalStateException: stream has already been operated upon or closed
 </code></p>
 
 <p>The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation.</p>
+
+<h2>将<code>Stream</code>转换为<code>int</code>、<code>long</code>或<code>double</code>流</h2>
+
+<pre><code class="java">abstract DoubleStream   mapToDouble(ToDoubleFunction&lt;? super T&gt; mapper)
+
+abstract IntStream mapToInt(ToIntFunction&lt;? super T&gt; mapper)
+
+abstract LongStream mapToLong(ToLongFunction&lt;? super T&gt; mapper)
+</code></pre>
+
+<h2>allMatch，anyMatch和noneMatch方法</h2>
+
+<pre><code class="java">abstract boolean allMatch(Predicate&lt;? super T&gt; predicate)
+
+abstract boolean anyMatch(Predicate&lt;? super T&gt; predicate)
+
+abstract boolean noneMatch(Predicate&lt;? super T&gt; predicate)
+</code></pre>
 ]]></content>
   </entry>
   
