@@ -40,4 +40,25 @@ Stream实例只能被使用一次，否则会抛出Runtime Exception：
 java.lang.IllegalStateException: stream has already been operated upon or closed
 ```
 
-The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation.
+The right and most convenient way to use streams are by a stream pipeline, which is a chain of stream source, intermediate operations, and a terminal operation.    
+
+
+## 将`Stream`转换为`int`、`long`或`double`流
+
+```java
+abstract DoubleStream	mapToDouble(ToDoubleFunction<? super T> mapper)
+
+abstract IntStream mapToInt(ToIntFunction<? super T> mapper)
+
+abstract LongStream mapToLong(ToLongFunction<? super T> mapper)
+```
+
+## allMatch，anyMatch和noneMatch方法
+
+```java
+abstract boolean allMatch(Predicate<? super T> predicate)
+
+abstract boolean anyMatch(Predicate<? super T> predicate)
+
+abstract boolean noneMatch(Predicate<? super T> predicate)
+```
