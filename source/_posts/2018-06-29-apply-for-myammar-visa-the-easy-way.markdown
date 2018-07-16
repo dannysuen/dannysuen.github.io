@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "apply for myammar visa the easy way"
+title: "缅甸旅游签证轻松办"
 date: 2018-06-29 22:36:17 +0700
 comments: true
 categories: 旅游
