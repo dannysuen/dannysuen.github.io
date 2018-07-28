@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[孙昱的博客]]></title>
+  <title><![CDATA[鲸落的博客]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-07-09T17:00:03+07:00</updated>
+  <updated>2018-07-28T15:23:00+07:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -14,7 +14,59 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Apply for Myammar Visa the Easy Way]]></title>
+    <title type="html"><![CDATA[Java Concurrency]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/07/16/java-concurrency/"/>
+    <updated>2018-07-16T12:28:47+07:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/07/16/java-concurrency</id>
+    <content type="html"><![CDATA[<h2>为何要同步线程？</h2>
+
+<blockquote><p>Since all threads run in the same address space, they all have access to the same data and variables. If two threads simultaneously attempt to update a global counter variable, it is possible for their operations to interleave in such way that the global state is not correctly modified. Although such a case may only arise only one time out of thousands, a concurrent program needs to coordinate the activities of multiple threads using something more reliable that just depending on the fact that such interference is rare.</p></blockquote>
+
+<p><code>Executor</code>: An object that executes submitted <code>Runnable</code> tasks.  <br/>
+<code>ExecutorService</code>: A more extensive interface.  <br/>
+<code>ThreadPoolExecutor</code>: Provides an extensible thread pool implementation.  <br/>
+<code>Executors</code>: Provides convenient factory methods for these Executors.</p>
+
+<p><code>AbstractExecutorService</code>: Provides default implementations of ExecutorService execution methods.  <br/>
+<code>ScheduledExecutorService</code>: An ExecutorService that can schedule commands to run after a given delay, or to execute periodically.</p>
+
+<h2><code>ExecutorService</code>的生命周期</h2>
+
+<ul>
+<li>Active</li>
+<li>Shutting Down</li>
+<li>Shutdown</li>
+</ul>
+
+
+<h2>Synchronizers (synchronization aids)</h2>
+
+<ul>
+<li>CyclicBarrier循环屏障: A synchronization aid that allows a set of threads to all wait for each other to reach a common barrier point.</li>
+<li>Phaser</li>
+<li>CountDownLatch: 当counter为1时为被用作start signal，为N时为complete signal。</li>
+<li>Exchanger</li>
+<li>Semaphore</li>
+<li>SynchronousQueue</li>
+</ul>
+
+
+<h2>Potential threading problems</h2>
+
+<ul>
+<li>Deadlock</li>
+<li>Starvation</li>
+<li>Livelock</li>
+<li>Race conditions</li>
+</ul>
+
+
+<h2>Concurrent Collections</h2>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[缅甸旅游签证轻松办]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/29/apply-for-myammar-visa-the-easy-way/"/>
     <updated>2018-06-29T22:36:17+07:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/29/apply-for-myammar-visa-the-easy-way</id>
