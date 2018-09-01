@@ -4,7 +4,7 @@
   <title><![CDATA[鲸落的博客]]></title>
   <link href="http://dannysuen.github.io/atom.xml" rel="self"/>
   <link href="http://dannysuen.github.io/"/>
-  <updated>2018-07-28T15:23:00+07:00</updated>
+  <updated>2018-09-01T19:14:10+08:00</updated>
   <id>http://dannysuen.github.io/</id>
   <author>
     <name><![CDATA[Danny Yu Sun]]></name>
@@ -14,9 +14,123 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Top K Algorithms]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/09/01/top-k-algorithms/"/>
+    <updated>2018-09-01T18:46:00+08:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/09/01/top-k-algorithms</id>
+    <content type="html"><![CDATA[<h2>背景</h2>
+
+<p>去年面试Facebook时，被问到了一道Top K的问题，这类的问题解法往往具有共通性。今天在LeetCode上又遇到了一道<a href="https://leetcode.com/problems/top-k-frequent-words/description/">类似的问题</a>，于是网上搜了一下<a href="https://www.programcreek.com/2014/05/leetcode-top-k-frequent-elements-java/">解题思路</a>，摘录留下备用。</p>
+
+<blockquote><p>Given a non-empty array of integers, return the k most frequent elements.</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">class</span> <span class="nc">Pair</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">count</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">Pair</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">,</span> <span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">num</span><span class="o">=</span><span class="n">num</span><span class="o">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">count</span><span class="o">=</span><span class="n">count</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">topKFrequent</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="c1">//count the frequency for each element</span>
+</span><span class='line'>        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+</span><span class='line'>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">nums</span><span class="o">){</span>
+</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">num</span><span class="o">))</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">num</span><span class="o">)+</span><span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// create a min heap</span>
+</span><span class='line'>        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;&gt;(</span><span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;(){</span>
+</span><span class='line'>            <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Pair</span> <span class="n">a</span><span class="o">,</span> <span class="n">Pair</span> <span class="n">b</span><span class="o">){</span>
+</span><span class='line'>                <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="na">count</span><span class="o">-</span><span class="n">b</span><span class="o">.</span><span class="na">count</span><span class="o">;</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">});</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//maintain a heap of size k.</span>
+</span><span class='line'>        <span class="k">for</span> <span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="nl">entry:</span> <span class="n">map</span><span class="o">.</span><span class="na">entrySet</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">Pair</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Pair</span><span class="o">(</span><span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">(),</span> <span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+</span><span class='line'>            <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+</span><span class='line'>            <span class="k">if</span><span class="o">(</span><span class="n">queue</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//get all elements from the heap</span>
+</span><span class='line'>        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+</span><span class='line'>        <span class="k">while</span><span class="o">(</span><span class="n">queue</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">().</span><span class="na">num</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>        <span class="c1">//reverse the order</span>
+</span><span class='line'>        <span class="n">Collections</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Java Concurrency]]></title>
     <link href="http://dannysuen.github.io/blog/2018/07/16/java-concurrency/"/>
-    <updated>2018-07-16T12:28:47+07:00</updated>
+    <updated>2018-07-16T13:28:47+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/07/16/java-concurrency</id>
     <content type="html"><![CDATA[<h2>为何要同步线程？</h2>
 
@@ -68,7 +182,7 @@
   <entry>
     <title type="html"><![CDATA[缅甸旅游签证轻松办]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/29/apply-for-myammar-visa-the-easy-way/"/>
-    <updated>2018-06-29T22:36:17+07:00</updated>
+    <updated>2018-06-29T23:36:17+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/29/apply-for-myammar-visa-the-easy-way</id>
     <content type="html"><![CDATA[<p>从没想到缅甸签证原来那么好办，当然我指的是电子签证。</p>
 
@@ -79,7 +193,7 @@
   <entry>
     <title type="html"><![CDATA[谈谈我参加Java认证考试的经历]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/29/my-ocja-and-ocjp-journey/"/>
-    <updated>2018-06-29T19:02:38+07:00</updated>
+    <updated>2018-06-29T20:02:38+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/29/my-ocja-and-ocjp-journey</id>
     <content type="html"><![CDATA[<p>还在读大学时就很想参加Java认真考试，当然，当时的Java还属于SUN公司的产品，所以也就叫SCJP考试。</p>
 
@@ -95,7 +209,7 @@
   <entry>
     <title type="html"><![CDATA[Talk a Little Bit About My Thai Learning]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/29/talk-a-little-bit-about-my-thai-learning/"/>
-    <updated>2018-06-29T19:02:12+07:00</updated>
+    <updated>2018-06-29T20:02:12+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/29/talk-a-little-bit-about-my-thai-learning</id>
     <content type="html"><![CDATA[
 ]]></content>
@@ -104,7 +218,7 @@
   <entry>
     <title type="html"><![CDATA[Java中的assert断言]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/29/java-assertions/"/>
-    <updated>2018-06-29T15:52:18+07:00</updated>
+    <updated>2018-06-29T16:52:18+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/29/java-assertions</id>
     <content type="html"><![CDATA[<p>使用Java已经有了10个年头，难以想象居然很少使用assert关键字。</p>
 
@@ -124,7 +238,7 @@
   <entry>
     <title type="html"><![CDATA[David Pawson《箴言》第一部观感]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/23/david-pawson-provert-part1/"/>
-    <updated>2018-06-23T07:39:16+07:00</updated>
+    <updated>2018-06-23T08:39:16+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/23/david-pawson-provert-part1</id>
     <content type="html"><![CDATA[<p>箴言这卷书一共有九百条箴言，涵盖人生各个层面，涵盖各种主题。</p>
 
@@ -152,7 +266,7 @@
   <entry>
     <title type="html"><![CDATA[Java Date and Time Problem]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/22/java-date-and-time-problem/"/>
-    <updated>2018-06-22T22:08:32+07:00</updated>
+    <updated>2018-06-22T23:08:32+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/22/java-date-and-time-problem</id>
     <content type="html"><![CDATA[<p><a href="https://www.hackerrank.com/challenges/java-date-and-time/problem">https://www.hackerrank.com/challenges/java-date-and-time/problem</a></p>
 
@@ -207,7 +321,7 @@
   <entry>
     <title type="html"><![CDATA[Git Cookbook]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/21/git-cookbook/"/>
-    <updated>2018-06-21T12:07:45+07:00</updated>
+    <updated>2018-06-21T13:07:45+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/21/git-cookbook</id>
     <content type="html"><![CDATA[<p>这个博客包含了在日常开发中经常会使用，但是却不太容易记住的Git命令和用法。</p>
 
@@ -245,7 +359,7 @@
   <entry>
     <title type="html"><![CDATA[Java 8 Date & Time API]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/16/java-8-date-and-time-api/"/>
-    <updated>2018-06-16T22:43:02+07:00</updated>
+    <updated>2018-06-16T23:43:02+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/16/java-8-date-and-time-api</id>
     <content type="html"><![CDATA[<p><a href="https://developer.android.com/reference/java/time/package-summary">Android官方文档里</a></p>
 
@@ -317,7 +431,7 @@
   <entry>
     <title type="html"><![CDATA[谈谈赴泰工作的问题]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/14/applying-visa-to-work-in-thailand/"/>
-    <updated>2018-06-14T16:48:42+07:00</updated>
+    <updated>2018-06-14T17:48:42+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/14/applying-visa-to-work-in-thailand</id>
     <content type="html"><![CDATA[<p>自从16年10月到泰国工作，迄今已经超过一年半了。我也想分享一下如何去泰国工作，其中最重要的就是签证问题。</p>
 
@@ -335,7 +449,7 @@
   <entry>
     <title type="html"><![CDATA[Java泛型中一些难点解析]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/12/java-generics/"/>
-    <updated>2018-06-12T11:44:52+07:00</updated>
+    <updated>2018-06-12T12:44:52+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/12/java-generics</id>
     <content type="html"><![CDATA[<p>Joshua Bloch：</p>
 
@@ -382,7 +496,7 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
   <entry>
     <title type="html"><![CDATA[Java 8 Optional类的要点分析]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/11/java-8-optional/"/>
-    <updated>2018-06-11T21:15:02+07:00</updated>
+    <updated>2018-06-11T22:15:02+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/11/java-8-optional</id>
     <content type="html"><![CDATA[<p>首先仔细浏览<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Oracle</a>和<a href="https://developer.android.com/reference/java/util/Optional">Android</a>官方API文档。</p>
 
@@ -543,7 +657,7 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
   <entry>
     <title type="html"><![CDATA[Introduction to Java 8]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/11/introduction-to-java-8/"/>
-    <updated>2018-06-11T11:59:30+07:00</updated>
+    <updated>2018-06-11T12:59:30+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/11/introduction-to-java-8</id>
     <content type="html"><![CDATA[<p>关于<a href="http://math.hws.edu/javanotes/glossary.html">Java的术语总结</a>。</p>
 ]]></content>
@@ -552,7 +666,7 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
   <entry>
     <title type="html"><![CDATA[在境外申请新加坡旅游签证攻略]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/07/applying-for-a-singapore-tourist-visa/"/>
-    <updated>2018-06-07T18:33:21+07:00</updated>
+    <updated>2018-06-07T19:33:21+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/07/applying-for-a-singapore-tourist-visa</id>
     <content type="html"><![CDATA[
 ]]></content>
@@ -561,7 +675,7 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
   <entry>
     <title type="html"><![CDATA[Java Stream API]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/06/java-stream-api/"/>
-    <updated>2018-06-06T18:02:25+07:00</updated>
+    <updated>2018-06-06T19:02:25+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/06/java-stream-api</id>
     <content type="html"><![CDATA[<p>Java 8引入了Stream的概念，掌握这个概念的最佳方式是阅读Java官方文档。</p>
 
@@ -655,7 +769,7 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
   <entry>
     <title type="html"><![CDATA[Lambda Expressions]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/06/lambda-expressions/"/>
-    <updated>2018-06-06T18:01:55+07:00</updated>
+    <updated>2018-06-06T19:01:55+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/06/lambda-expressions</id>
     <content type="html"><![CDATA[
 ]]></content>
@@ -664,7 +778,7 @@ A wildcard with a lower bound looks like &ldquo; ? super Type &rdquo; and stands
   <entry>
     <title type="html"><![CDATA[Java 8 Functional Interfaces笔记]]></title>
     <link href="http://dannysuen.github.io/blog/2018/06/06/java-8-functional-interfaces-notes/"/>
-    <updated>2018-06-06T17:15:33+07:00</updated>
+    <updated>2018-06-06T18:15:33+08:00</updated>
     <id>http://dannysuen.github.io/blog/2018/06/06/java-8-functional-interfaces-notes</id>
     <content type="html"><![CDATA[<p>最近在准备OCJP 8考试，需要熟悉一下Java 8引入的函数式编程的概念。具体包括了Functional Interfaces、Lambda表达式、Stream API等新知识。</p>
 
