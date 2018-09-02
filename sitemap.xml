@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://dannysuen.github.io/blog/2018/09/02/stack-in-java/</loc>
+<lastmod>2018-09-02T20:17:01+08:00</lastmod>
+</url>
+<url>
+<loc>http://dannysuen.github.io/blog/2018/09/01/how-to-maintain-octopress/</loc>
+<lastmod>2018-09-01T19:19:01+08:00</lastmod>
+</url>
+<url>
 <loc>http://dannysuen.github.io/blog/2018/09/01/top-k-algorithms/</loc>
 <lastmod>2018-09-01T18:46:00+08:00</lastmod>
 </url>
@@ -86,5 +94,8 @@
 </url>
 <url>
 <loc>http://dannysuen.github.io/blog/categories/lu-you/</loc>
+</url>
+<url>
+<loc>http://dannysuen.github.io/blog/categories/algorithms/</loc>
 </url>
 </urlset>

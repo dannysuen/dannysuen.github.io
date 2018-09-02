@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Algorithms | 鲸落的博客]]></title>
+  <link href="http://dannysuen.github.io/blog/categories/algorithms/atom.xml" rel="self"/>
+  <link href="http://dannysuen.github.io/"/>
+  <updated>2018-09-02T20:20:57+08:00</updated>
+  <id>http://dannysuen.github.io/</id>
+  <author>
+    <name><![CDATA[Danny Yu Sun]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Stack in Java]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/09/02/stack-in-java/"/>
+    <updated>2018-09-02T20:17:01+08:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/09/02/stack-in-java</id>
+    <content type="html"><![CDATA[<p>Stack作为一个LIFO (Last-In-First-Out)是非常重要的数据结构，Java中从最初版本就有了Stack类，但是该类由于是继承自Vector，在Java Collections发布后就被废弃了。</p>
+
+<blockquote><p>Deques can also be used as LIFO (Last-In-First-Out) stacks. This interface should be used in preference to the legacy Stack class. When a deque is used as a stack, elements are pushed and popped from the beginning of the deque.</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Top K Algorithms]]></title>
+    <link href="http://dannysuen.github.io/blog/2018/09/01/top-k-algorithms/"/>
+    <updated>2018-09-01T18:46:00+08:00</updated>
+    <id>http://dannysuen.github.io/blog/2018/09/01/top-k-algorithms</id>
+    <content type="html"><![CDATA[<h2>背景</h2>
+
+<p>去年面试Facebook时，被问到了一道Top K的问题，这类的问题解法往往具有共通性。今天在LeetCode上又遇到了一道<a href="https://leetcode.com/problems/top-k-frequent-words/description/">类似的问题</a>，于是网上搜了一下<a href="https://www.programcreek.com/2014/05/leetcode-top-k-frequent-elements-java/">解题思路</a>，摘录留下备用。</p>
+
+<p>JDK里有一个强大的集合类 &ndash; <em>PriorityQueue</em>，掌握了它的用法便能迎刃而解这类问题。</p>
+
+<p>值得注意的是<em>PriorityQueue</em>没有继承自<em>List</em>，不具有随机访问第i个元素的方法。
+<code>java
+E get(int index);
+</code></p>
+
+<blockquote><p>Given a non-empty array of integers, return the k most frequent elements.</p></blockquote>
+
+<pre><code class="java">class Pair {
+    int num;
+    int count;
+
+    Pair(int num, int count) {
+        this.num=num;
+        this.count=count;
+    }
+}
+
+public class Solution {
+    public List&lt;Integer&gt; topKFrequent(int[] nums, int k) {
+        //count the frequency for each element
+        HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;Integer, Integer&gt;();
+        for(int num: nums){
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num)+1);
+            } else {
+                map.put(num, 1);
+            }
+        }
+
+        // create a min heap
+        PriorityQueue&lt;Pair&gt; queue = new PriorityQueue&lt;&gt;(new Comparator&lt;Pair&gt;() {
+            public int compare(Pair a, Pair b) {
+                return a.count - b.count;
+            }
+        });
+
+        //maintain a heap of size k.
+        for (Map.Entry&lt;Integer, Integer&gt; entry: map.entrySet()) {
+            Pair p = new Pair(entry.getKey(), entry.getValue());
+            queue.offer(p);
+            if(queue.size() &gt; k) {
+                queue.poll();
+            }
+        }
+
+        //get all elements from the heap
+        List&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();
+        while(queue.size() &gt; 0) {
+            result.add(queue.poll().num);
+        }
+        //reverse the order
+        Collections.reverse(result);
+
+        return result;
+    }
+}
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

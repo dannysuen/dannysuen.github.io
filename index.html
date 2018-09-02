@@ -9,7 +9,7 @@
   <meta name="author" content="Danny Yu Sun">
 
   
-  <meta name="description" content="背景 去年面试Facebook时，被问到了一道Top K的问题，这类的问题解法往往具有共通性。今天在LeetCode上又遇到了一道类似的问题，于是网上搜了一下解题思路，摘录留下备用。 Given a non-empty array of integers, return the k most &hellip;">
+  <meta name="description" content="Stack作为一个LIFO (Last-In-First-Out)是非常重要的数据结构，Java中从最初版本就有了Stack类，但是该类由于是继承自Vector，在Java Collections发布后就被废弃了。 Deques can also be used as LIFO (Last-In- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +72,66 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2018/09/02/stack-in-java/">Stack in Java</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-09-02T20:17:01+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2018</span></span> <span class='time'>8:17 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Stack作为一个LIFO (Last-In-First-Out)是非常重要的数据结构，Java中从最初版本就有了Stack类，但是该类由于是继承自Vector，在Java Collections发布后就被废弃了。</p>
+
+<blockquote><p>Deques can also be used as LIFO (Last-In-First-Out) stacks. This interface should be used in preference to the legacy Stack class. When a deque is used as a stack, elements are pushed and popped from the beginning of the deque.</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/09/01/how-to-maintain-octopress/">How to Maintain Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-09-01T19:19:01+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2018</span></span> <span class='time'>7:19 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://www.didiksetiawan.com/blog/2016/06/02/octopress-setup-and-deployment/">https://www.didiksetiawan.com/blog/2016/06/02/octopress-setup-and-deployment/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2018/09/01/top-k-algorithms/">Top K Algorithms</a></h1>
     
     
@@ -91,6 +151,15 @@
   <div class="entry-content"><h2>背景</h2>
 
 <p>去年面试Facebook时，被问到了一道Top K的问题，这类的问题解法往往具有共通性。今天在LeetCode上又遇到了一道<a href="https://leetcode.com/problems/top-k-frequent-words/description/">类似的问题</a>，于是网上搜了一下<a href="https://www.programcreek.com/2014/05/leetcode-top-k-frequent-elements-java/">解题思路</a>，摘录留下备用。</p>
+
+<p>JDK里有一个强大的集合类 &ndash; <em>PriorityQueue</em>，掌握了它的用法便能迎刃而解这类问题。</p>
+
+<p>值得注意的是<em>PriorityQueue</em>没有继承自<em>List</em>，不具有随机访问第i个元素的方法。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">E</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <blockquote><p>Given a non-empty array of integers, return the k most frequent elements.</p></blockquote>
 
@@ -166,9 +235,9 @@
 </span><span class='line'>        <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>        <span class="c1">// create a min heap</span>
-</span><span class='line'>        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;&gt;(</span><span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;(){</span>
-</span><span class='line'>            <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Pair</span> <span class="n">a</span><span class="o">,</span> <span class="n">Pair</span> <span class="n">b</span><span class="o">){</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="na">count</span><span class="o">-</span><span class="n">b</span><span class="o">.</span><span class="na">count</span><span class="o">;</span>
+</span><span class='line'>        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;&gt;(</span><span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class='line'>            <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Pair</span> <span class="n">a</span><span class="o">,</span> <span class="n">Pair</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="na">count</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="na">count</span><span class="o">;</span>
 </span><span class='line'>            <span class="o">}</span>
 </span><span class='line'>        <span class="o">});</span>
 </span><span class='line'>
@@ -471,77 +540,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2018/06/21/git-cookbook/">Git Cookbook</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2018-06-21T13:07:45+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2018</span></span> <span class='time'>1:07 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>这个博客包含了在日常开发中经常会使用，但是却不太容易记住的Git命令和用法。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2018/06/21/git-cookbook/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2018/06/16/java-8-date-and-time-api/">Java 8 Date & Time API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2018-06-16T23:43:02+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>11:43 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://developer.android.com/reference/java/time/package-summary">Android官方文档里</a></p>
-
-<p><code>java.time.temporal</code>: lower level access to the fields.      <br/>
-<code>java.time.format</code>: customization options.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2018/06/16/java-8-date-and-time-api/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -557,6 +555,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2018/09/02/stack-in-java/">Stack in Java</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/09/01/how-to-maintain-octopress/">How to Maintain Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/09/01/top-k-algorithms/">Top K Algorithms</a>
       </li>
     
@@ -568,20 +574,13 @@
         <a href="/blog/2018/06/29/apply-for-myammar-visa-the-easy-way/">缅甸旅游签证轻松办</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2018/06/29/my-ocja-and-ocjp-journey/">谈谈我参加Java认证考试的经历</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/06/29/talk-a-little-bit-about-my-thai-learning/">Talk a Little Bit About My Thai Learning</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-      <li class='category'><a href='/blog/categories/java/'>java (5)</a></li>
+      <li class='category'><a href='/blog/categories/algorithms/'>algorithms (2)</a></li>
+<li class='category'><a href='/blog/categories/java/'>java (5)</a></li>
 <li class='category'><a href='/blog/categories/lu-you/'>旅游 (2)</a></li>
 
   </ul>

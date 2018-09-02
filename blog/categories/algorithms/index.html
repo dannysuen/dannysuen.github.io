@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Java Concurrency - 鲸落的博客</title>
+  <title>Category: Algorithms - 鲸落的博客</title>
   <meta name="author" content="Danny Yu Sun">
 
   
-  <meta name="description" content="为何要同步线程？ Since all threads run in the same address space, they all have access to the same data and variables. If two threads simultaneously attempt &hellip;">
+  <meta name="description" content="Category: algorithms">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dannysuen.github.io/blog/2018/07/16/java-concurrency/">
+  <link rel="canonical" href="http://dannysuen.github.io/blog/categories/algorithms/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="鲸落的博客" type="application/atom+xml">
@@ -65,116 +65,50 @@
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Java Concurrency</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2018-07-16T13:28:47+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>1:28 pm</span></time>
-        
-      </p>
+    <h1 class="entry-title">Category: Algorithms</h1>
     
   </header>
-
-
-<div class="entry-content"><h2>为何要同步线程？</h2>
-
-<blockquote><p>Since all threads run in the same address space, they all have access to the same data and variables. If two threads simultaneously attempt to update a global counter variable, it is possible for their operations to interleave in such way that the global state is not correctly modified. Although such a case may only arise only one time out of thousands, a concurrent program needs to coordinate the activities of multiple threads using something more reliable that just depending on the fact that such interference is rare.</p></blockquote>
-
-<p><code>Executor</code>: An object that executes submitted <code>Runnable</code> tasks.  <br/>
-<code>ExecutorService</code>: A more extensive interface.  <br/>
-<code>ThreadPoolExecutor</code>: Provides an extensible thread pool implementation.  <br/>
-<code>Executors</code>: Provides convenient factory methods for these Executors.</p>
-
-<p><code>AbstractExecutorService</code>: Provides default implementations of ExecutorService execution methods.  <br/>
-<code>ScheduledExecutorService</code>: An ExecutorService that can schedule commands to run after a given delay, or to execute periodically.</p>
-
-<h2><code>ExecutorService</code>的生命周期</h2>
-
-<ul>
-<li>Active</li>
-<li>Shutting Down</li>
-<li>Shutdown</li>
-</ul>
-
-
-<h2>Synchronizers (synchronization aids)</h2>
-
-<ul>
-<li>CyclicBarrier循环屏障: A synchronization aid that allows a set of threads to all wait for each other to reach a common barrier point.</li>
-<li>Phaser</li>
-<li>CountDownLatch: 当counter为1时为被用作start signal，为N时为complete signal。</li>
-<li>Exchanger</li>
-<li>Semaphore</li>
-<li>SynchronousQueue</li>
-</ul>
-
-
-<h2>Potential threading problems</h2>
-
-<ul>
-<li>Deadlock</li>
-<li>Starvation</li>
-<li>Livelock</li>
-<li>Race conditions</li>
-</ul>
-
-
-<h2>Concurrent Collections</h2>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Danny Yu Sun</span></span>
-
-      
+  <div id="blog-archives" class="category">
 
 
 
-
-<time class='entry-date' datetime='2018-07-16T13:28:47+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>1:28 pm</span></time>
-      
-
-
-    </p>
-    
-      <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dannysuen.github.io/blog/2018/07/16/java-concurrency/" data-via="" data-counturl="http://dannysuen.github.io/blog/2018/07/16/java-concurrency/" >Tweet</a>
-  
-  
-  
-</div>
+  <h2>2018</h2>
 
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2018/06/29/apply-for-myammar-visa-the-easy-way/" title="Previous Post: 缅甸旅游签证轻松办">&laquo; 缅甸旅游签证轻松办</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2018/09/01/top-k-algorithms/" title="Next Post: top k algorithms">top k algorithms &raquo;</a>
-      
-    </p>
-  </footer>
+<article>
+  
+<h1><a href="/blog/2018/09/02/stack-in-java/">Stack in Java</a></h1>
+<time datetime="2018-09-02T20:17:01+08:00" pubdate><span class='month'>Sep</span> <span class='day'>02</span> <span class='year'>2018</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/algorithms/'>algorithms</a></span>
+</footer>
+
+
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<article>
+  
+<h1><a href="/blog/2018/09/01/top-k-algorithms/">Top K Algorithms</a></h1>
+<time datetime="2018-09-01T18:46:00+08:00" pubdate><span class='month'>Sep</span> <span class='day'>01</span> <span class='year'>2018</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/algorithms/'>algorithms</a></span>
+</footer>
+
+
+</article>
+
 </div>
-  </section>
+
+  
+</article>
 
 </div>
 
@@ -234,10 +168,7 @@
       var disqus_shortname = 'dannysuen';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://dannysuen.github.io/blog/2018/07/16/java-concurrency/';
-        var disqus_url = 'http://dannysuen.github.io/blog/2018/07/16/java-concurrency/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
